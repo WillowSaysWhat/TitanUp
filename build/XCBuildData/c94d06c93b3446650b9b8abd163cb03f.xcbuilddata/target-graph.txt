@@ -1,0 +1,6 @@
+Target dependency graph (3 targets)
+Target 'TitanUpUITests' in project 'TitanUp'
+➜ Explicit dependency on target 'TitanUp' in project 'TitanUp'
+Target 'TitanUpTests' in project 'TitanUp'
+➜ Explicit dependency on target 'TitanUp' in project 'TitanUp'
+Target 'TitanUp' in project 'TitanUp' (no dependencies)

@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests-master.dia",
+    "emit-module-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests-master-emit-module.dia",
+    "swift-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests-master.swiftdeps"
+  },
+  "/Users/huwwilliams/Documents/GitHub/TitanUp/TitanUpTests/TitanUpTests.swift" : {
+    "const-values" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests.swiftconstvalues",
+    "dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests.d",
+    "diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests.dia",
+    "index-unit-output-path" : "/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests.o",
+    "llvm-bc" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests.bc",
+    "object" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests.o",
+    "swift-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests.swiftdeps",
+    "swiftmodule" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpTests.build/Objects-normal/arm64/TitanUpTests~partial.swiftmodule"
+  }
+}

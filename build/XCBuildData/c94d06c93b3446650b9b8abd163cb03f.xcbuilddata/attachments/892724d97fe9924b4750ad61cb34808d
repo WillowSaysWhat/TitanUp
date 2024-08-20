@@ -1,0 +1,48 @@
+{
+  "" : {
+    "diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUp-master.dia",
+    "emit-module-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUp-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUp-master-emit-module.dia",
+    "swift-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUp-master.swiftdeps"
+  },
+  "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/huwwilliams/Documents/GitHub/TitanUp/TitanUp/ContentView.swift" : {
+    "const-values" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/huwwilliams/Documents/GitHub/TitanUp/TitanUp/FrontCameraView.swift" : {
+    "const-values" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/FrontCameraView.swiftconstvalues",
+    "dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/FrontCameraView.d",
+    "diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/FrontCameraView.dia",
+    "index-unit-output-path" : "/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/FrontCameraView.o",
+    "llvm-bc" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/FrontCameraView.bc",
+    "object" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/FrontCameraView.o",
+    "swift-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/FrontCameraView.swiftdeps",
+    "swiftmodule" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/FrontCameraView~partial.swiftmodule"
+  },
+  "/Users/huwwilliams/Documents/GitHub/TitanUp/TitanUp/TitanUpApp.swift" : {
+    "const-values" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUpApp.swiftconstvalues",
+    "dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUpApp.d",
+    "diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUpApp.dia",
+    "index-unit-output-path" : "/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUpApp.o",
+    "llvm-bc" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUpApp.bc",
+    "object" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUpApp.o",
+    "swift-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUpApp.swiftdeps",
+    "swiftmodule" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUp.build/Objects-normal/arm64/TitanUpApp~partial.swiftmodule"
+  }
+}

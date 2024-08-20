@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B3D6CE92C6A246C00F52EA9 /* QuickPoseCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6CE82C6A246C00F52EA9 /* QuickPoseCamera */; };
+		0B3D6CEB2C6A246C00F52EA9 /* QuickPoseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6CEA2C6A246C00F52EA9 /* QuickPoseCore */; };
+		0B3D6CED2C6A246C00F52EA9 /* QuickPoseMP in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6CEC2C6A246C00F52EA9 /* QuickPoseMP */; };
+		0B3D6CEF2C6A246C00F52EA9 /* QuickPoseSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6CEE2C6A246C00F52EA9 /* QuickPoseSwiftUI */; };
+		0B90BA5E2C747C050032674C /* IMG_4149.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0B90BA5D2C747C050032674C /* IMG_4149.mov */; };
 		0BDB72CC2C6A005D007B41EC /* TitanUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB72CB2C6A005D007B41EC /* TitanUpApp.swift */; };
 		0BDB72CE2C6A005D007B41EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB72CD2C6A005D007B41EC /* ContentView.swift */; };
 		0BDB72D02C6A005E007B41EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB72CF2C6A005E007B41EC /* Assets.xcassets */; };
@@ -14,6 +19,7 @@
 		0BDB72DD2C6A005E007B41EC /* TitanUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB72DC2C6A005E007B41EC /* TitanUpTests.swift */; };
 		0BDB72E72C6A005E007B41EC /* TitanUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB72E62C6A005E007B41EC /* TitanUpUITests.swift */; };
 		0BDB72E92C6A005E007B41EC /* TitanUpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB72E82C6A005E007B41EC /* TitanUpUITestsLaunchTests.swift */; };
+		0BDB72F62C6A0936007B41EC /* FrontCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB72F52C6A0936007B41EC /* FrontCameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B90BA5D2C747C050032674C /* IMG_4149.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_4149.mov; sourceTree = "<group>"; };
 		0BDB72C82C6A005D007B41EC /* TitanUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TitanUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BDB72CB2C6A005D007B41EC /* TitanUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanUpApp.swift; sourceTree = "<group>"; };
 		0BDB72CD2C6A005D007B41EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +51,7 @@
 		0BDB72E22C6A005E007B41EC /* TitanUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TitanUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BDB72E62C6A005E007B41EC /* TitanUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanUpUITests.swift; sourceTree = "<group>"; };
 		0BDB72E82C6A005E007B41EC /* TitanUpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanUpUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0BDB72F52C6A0936007B41EC /* FrontCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B3D6CEB2C6A246C00F52EA9 /* QuickPoseCore in Frameworks */,
+				0B3D6CED2C6A246C00F52EA9 /* QuickPoseMP in Frameworks */,
+				0B3D6CE92C6A246C00F52EA9 /* QuickPoseCamera in Frameworks */,
+				0B3D6CEF2C6A246C00F52EA9 /* QuickPoseSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B90BA5C2C747BCB0032674C /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				0BDB72CF2C6A005E007B41EC /* Assets.xcassets */,
+				0B90BA5D2C747C050032674C /* IMG_4149.mov */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		0BDB72BF2C6A005D007B41EC = {
 			isa = PBXGroup;
 			children = (
@@ -94,10 +115,11 @@
 		0BDB72CA2C6A005D007B41EC /* TitanUp */ = {
 			isa = PBXGroup;
 			children = (
+				0B90BA5C2C747BCB0032674C /* assets */,
 				0BDB72CB2C6A005D007B41EC /* TitanUpApp.swift */,
 				0BDB72CD2C6A005D007B41EC /* ContentView.swift */,
-				0BDB72CF2C6A005E007B41EC /* Assets.xcassets */,
 				0BDB72D12C6A005E007B41EC /* Preview Content */,
+				0BDB72F52C6A0936007B41EC /* FrontCameraView.swift */,
 			);
 			path = TitanUp;
 			sourceTree = "<group>";
@@ -143,6 +165,12 @@
 			dependencies = (
 			);
 			name = TitanUp;
+			packageProductDependencies = (
+				0B3D6CE82C6A246C00F52EA9 /* QuickPoseCamera */,
+				0B3D6CEA2C6A246C00F52EA9 /* QuickPoseCore */,
+				0B3D6CEC2C6A246C00F52EA9 /* QuickPoseMP */,
+				0B3D6CEE2C6A246C00F52EA9 /* QuickPoseSwiftUI */,
+			);
 			productName = TitanUp;
 			productReference = 0BDB72C82C6A005D007B41EC /* TitanUp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +243,9 @@
 				Base,
 			);
 			mainGroup = 0BDB72BF2C6A005D007B41EC;
+			packageReferences = (
+				0B3D6CE72C6A246C00F52EA9 /* XCRemoteSwiftPackageReference "quickpose-ios-sdk" */,
+			);
 			productRefGroup = 0BDB72C92C6A005D007B41EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +264,7 @@
 			files = (
 				0BDB72D32C6A005E007B41EC /* Preview Assets.xcassets in Resources */,
 				0BDB72D02C6A005E007B41EC /* Assets.xcassets in Resources */,
+				0B90BA5E2C747C050032674C /* IMG_4149.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +291,7 @@
 			files = (
 				0BDB72CE2C6A005D007B41EC /* ContentView.swift in Sources */,
 				0BDB72CC2C6A005D007B41EC /* TitanUpApp.swift in Sources */,
+				0BDB72F62C6A0936007B41EC /* FrontCameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +458,8 @@
 				DEVELOPMENT_TEAM = 94WNU99F48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) Needs access to count your pushups";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -439,7 +474,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -454,6 +489,8 @@
 				DEVELOPMENT_TEAM = 94WNU99F48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) Needs access to count your pushups";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -468,7 +505,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -588,6 +625,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0B3D6CE72C6A246C00F52EA9 /* XCRemoteSwiftPackageReference "quickpose-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quickpose/quickpose-ios-sdk.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0B3D6CE82C6A246C00F52EA9 /* QuickPoseCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B3D6CE72C6A246C00F52EA9 /* XCRemoteSwiftPackageReference "quickpose-ios-sdk" */;
+			productName = QuickPoseCamera;
+		};
+		0B3D6CEA2C6A246C00F52EA9 /* QuickPoseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B3D6CE72C6A246C00F52EA9 /* XCRemoteSwiftPackageReference "quickpose-ios-sdk" */;
+			productName = QuickPoseCore;
+		};
+		0B3D6CEC2C6A246C00F52EA9 /* QuickPoseMP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B3D6CE72C6A246C00F52EA9 /* XCRemoteSwiftPackageReference "quickpose-ios-sdk" */;
+			productName = QuickPoseMP;
+		};
+		0B3D6CEE2C6A246C00F52EA9 /* QuickPoseSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B3D6CE72C6A246C00F52EA9 /* XCRemoteSwiftPackageReference "quickpose-ios-sdk" */;
+			productName = QuickPoseSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0BDB72C02C6A005D007B41EC /* Project object */;
 }

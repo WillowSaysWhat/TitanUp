@@ -1,0 +1,15 @@
+{
+  "originHash" : "53077b7b3727e45769bb0b538f78dff45bc8ff4c8ebfc3547830293daf130aee",
+  "pins" : [
+    {
+      "identity" : "quickpose-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/quickpose/quickpose-ios-sdk.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "50468e30e0bc68a9eb12509a957b364d9881e2ed"
+      }
+    }
+  ],
+  "version" : 3
+}

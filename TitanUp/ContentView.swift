@@ -9,13 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView { // Step 1: Wrap in NavigationView
+            VStack {
+                NavigationLink(destination: FrontCameraView()) { // Step 2: Use NavigationLink
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 50)
+                            .shadow(radius: 5)
+                        Text("Camera")
+                            .foregroundColor(.white)
+                            .bold()
+                    }
+                }
+            }
+            .padding()
         }
-        .padding()
     }
 }
 

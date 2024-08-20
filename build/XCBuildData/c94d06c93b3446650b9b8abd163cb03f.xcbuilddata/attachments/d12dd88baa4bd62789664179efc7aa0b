@@ -1,0 +1,28 @@
+{
+  "" : {
+    "diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests-master.dia",
+    "emit-module-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests-master-emit-module.dia",
+    "swift-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests-master.swiftdeps"
+  },
+  "/Users/huwwilliams/Documents/GitHub/TitanUp/TitanUpUITests/TitanUpUITests.swift" : {
+    "const-values" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests.swiftconstvalues",
+    "dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests.d",
+    "diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests.dia",
+    "index-unit-output-path" : "/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests.o",
+    "llvm-bc" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests.bc",
+    "object" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests.o",
+    "swift-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests.swiftdeps",
+    "swiftmodule" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITests~partial.swiftmodule"
+  },
+  "/Users/huwwilliams/Documents/GitHub/TitanUp/TitanUpUITests/TitanUpUITestsLaunchTests.swift" : {
+    "const-values" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITestsLaunchTests.swiftconstvalues",
+    "dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITestsLaunchTests.d",
+    "diagnostics" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITestsLaunchTests.dia",
+    "index-unit-output-path" : "/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITestsLaunchTests.o",
+    "llvm-bc" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITestsLaunchTests.bc",
+    "object" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITestsLaunchTests.o",
+    "swift-dependencies" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITestsLaunchTests.swiftdeps",
+    "swiftmodule" : "/Users/huwwilliams/Documents/GitHub/TitanUp/build/TitanUp.build/Debug-iphoneos/TitanUpUITests.build/Objects-normal/arm64/TitanUpUITestsLaunchTests~partial.swiftmodule"
+  }
+}

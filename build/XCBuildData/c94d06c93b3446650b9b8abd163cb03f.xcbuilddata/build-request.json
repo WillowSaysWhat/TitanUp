@@ -1,0 +1,73 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "6e88026dbd4fb44553ba12308182ef715ea9d04629a8f7ddb2ddcfcc2c9ba2d5"
+    },
+    {
+      "guid" : "6e88026dbd4fb44553ba12308182ef719f7b77b27f6886608959315d33c0a666"
+    },
+    {
+      "guid" : "6e88026dbd4fb44553ba12308182ef71536bd8ec3c534dbe8c8758b9ada57718"
+    }
+  ],
+  "containerPath" : "/Users/huwwilliams/Documents/GitHub/TitanUp/TitanUp.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "undefined_arch",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : true,
+      "platform" : "iphoneos",
+      "sdk" : "iphoneos17.5",
+      "sdkVariant" : "iphoneos",
+      "supportedArchitectures" : [
+        "armv4t",
+        "armv5",
+        "armv6",
+        "armv7",
+        "armv7f",
+        "armv7s",
+        "armv7k",
+        "arm64",
+        "arm64e"
+      ],
+      "targetArchitecture" : "undefined_arch"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/huwwilliams/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/huwwilliams/Library/Developer/Xcode/DerivedData/TitanUp-dixqwgkuuspewealvcmuanoeqber/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/huwwilliams/Library/Developer/Xcode/DerivedData/TitanUp-dixqwgkuuspewealvcmuanoeqber/Index.noindex/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "CLANG_COVERAGE_MAPPING" : "YES",
+          "CLANG_PROFILE_DATA_DIRECTORY" : "/Users/huwwilliams/Library/Developer/Xcode/DerivedData/TitanUp-dixqwgkuuspewealvcmuanoeqber/CodeCoverage/ProfileData",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
