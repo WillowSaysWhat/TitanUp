@@ -2,7 +2,7 @@
 <h1 style="text-align: center;">Front Camera Pose Detection</h1>
 
 <p align="center">
-<img src="/docs/assets/Screenshot 2024-08-20 at 13.35.28.png"/>
+<img src="/docs/assets/QuickPose.gif"/>
 </p>
 
 ## Overview
