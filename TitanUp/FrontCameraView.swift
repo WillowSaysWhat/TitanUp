@@ -12,24 +12,25 @@ struct FrontCameraView: View {
     @State var overlayImage: UIImage? = nil
     // QuickPose abstracted container to hold the type of pose/exercise.
     @State var feature: QuickPose.Feature = .fitness(.pushUps)
+    @State var fontSize: CGFloat = 26
     
     var body: some View {
         ZStack {
             // this initialised the fake camera
-            if let url = Bundle.main.url(forResource: "IMG_4149", withExtension: "mov"){
-                QuickPoseSimulatedCameraView(useFrontCamera: true, delegate: quickPose, video: url)
-            }
+//            if let url = Bundle.main.url(forResource: "IMG_4149", withExtension: "mov"){
+//                QuickPoseSimulatedCameraView(useFrontCamera: true, delegate: quickPose, video: url)
+//            }
             
             // this commented out code is for the actual camera.
-            //QuickPoseCameraView(useFrontCamera: true, delegate: quickPose)
+            QuickPoseCameraView(useFrontCamera: true, delegate: quickPose)
             
-            // This is the overlay view - [NUM] Pushups
+            // This is the overlay view which appear as lines linking a virtual skeleton.
             QuickPoseOverlayView(overlayImage: $overlayImage)
         }.overlay(alignment: .bottom) {
             //displays pushup count.
             if let feedbackText = feedbackText {
                 Text(feedbackText)
-                    .font(.system(size: 26, weight: .semibold))
+                    .font(.system(size: fontSize, weight: .semibold))
                     .foregroundColor(.white)
             }
         }
@@ -37,7 +38,7 @@ struct FrontCameraView: View {
             quickPose.start(features: [.fitness(.pushUps)], onFrame: {status, image, features, feedback, landmarks in
                 
                 // This places the lines on the screen for testing.
-                overlayImage = image
+//                overlayImage = image
                 
                 // if the features variable is a pushup (pre-defined in QuickPose package.)
                 // count the pushup using the QuickPoseThresholdCounter object.
