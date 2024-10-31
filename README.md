@@ -11,7 +11,7 @@ Click [here](/docs/designDiary.md) for an in-depth look into the objectives of T
 # Table of Contents
 
 * [Key Features](#key-features)
-* [Front Camera - QuickPose Pacakge]()
+* [Front Camera - QuickPose Pacakge](/docs/FrontCameraPoseDetection.md)
 * [Design Diary](/docs/designDiary.md)
 
 ## Key Features
@@ -23,6 +23,8 @@ Click [here](/docs/designDiary.md) for an in-depth look into the objectives of T
 * Award-bsed progerss system.
 
 ## Understanding the User Interface
+
+TitanUp is currently in the design phase. This part of the documentation is still under construction.
 
 ### Login Screen
 

@@ -19,6 +19,8 @@ TitanUp will be built using Swift, SwiftUI and QuickPose.ai Pose detection packa
 
 The app's core functiionality is to accurately tracking users' push-up counts, leveraging the front camera to ensure precision and reliability. Additionally, personalised progress tracking and achievement systems will be integreated to provide user with feedback and incentives to stay committed to their fitness goals.
 
+Once this has been achieved, the next step is to complete an open-source, free and native pose detection system for iPhone using CoreML and CreateML with model-building capabilities imported from MediaPipe or YOLOv7.
+
 ## Expected Outcomes
 
 Users stand to reap multitude of benefits, extending beyond physical fitness:
