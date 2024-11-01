@@ -39,6 +39,7 @@ TitanUp is currently in the design phase. This part of the documentation is stil
 ## Important Widgets
 
 ### Charts
+* [Pie Chart](/docs/pieChart.md)
 
 ### Profile Panel
 
