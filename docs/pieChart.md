@@ -1,10 +1,14 @@
-# SwiftUI Pie Charts iOS 17
+<p align="center">
+<img src="/docs/assets/pieChartHeading.jpg"/>
+</p>
 
 This is the SwiftUI pie chart that will be used in TitanUp. This comes from the YT tutorial SwiftUI Pie and Dounut charts - New to iOS 17 - https://www.youtube.com/watch?v=8M3N4HWUc0U
 First accessed 31 October 2024.
 
 ## Objects needed
 
+
+This is just here as another example of tamplating data and preparing it for the DB.
 ```swift
 // this is an example of converting the original bar chart data into other data
 struct ConvertedChartData: Identifiable, Equatable {
@@ -13,6 +17,7 @@ struct ConvertedChartData: Identifiable, Equatable {
     var date: Date
 }
 
+// this is the object template
 struct StackedBarChartData: Identifiable, Equatable {
     let id = UUID()
     var value: Double
@@ -76,3 +81,4 @@ struct MockData {
 1. this should not be hard coded with lets say(80.0) as it will not translate if the size of the pie is changed. I think this makes the dounut. will need to check in XCode.
 2. Outer radius: 100 will make a donut chart. placing in a turnery (see example above) will let you pop out a particular slice.
 
+Take a look at the [Bar Chart](/docs/barChart.md) code.

@@ -141,3 +141,5 @@ The Model wwould contain structs that hold the user data. This object would then
 Traditionally, the data quieries are used in the viewModels, but this would see a divergernce from the "Don't repeat yourself" programming principle as each viewModel would need its own database quiery. This could create repeated logic in each viewModel, therefore, datebase interaction would need to be built in the Model for use by all viewModels. 
 
 MVVM could be seen as over-complicated for a simple app like TitanUp. The app could use up to 5 viewmodel objects, which seems an excessive use of memory. A single viewModel could be used for all views by using an @EnvironmentObject in the main view. This would update the single object.
+
+See how the [charts](/docs/pieChart.md) on the Home Page will be built.

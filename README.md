@@ -3,9 +3,9 @@
 </p>
 
 ## Description of the Application
-
+<p align= "justify">
 TitanUp is a pushup app that monitors reps using the front camera of your iPhone. This ensures that collected data is correct. The app is designed to give the user a no-bs metric to track push-up improvementant and upper body strength training. TitanUp also focuses on building a masculine mindset and a can-do attitude to life. This app will bring out the warrior in you. If mental health is a key part of your daily routine, TitanUp is a must-have for comfort, motivation, and mindset-conditioning.
-
+</p>
 Click [here](/docs/designDiary.md) for an in-depth look into the objectives of TitanUP.
 
 # Table of Contents
@@ -40,6 +40,7 @@ TitanUp is currently in the design phase. This part of the documentation is stil
 
 ### Charts
 * [Pie Chart](/docs/pieChart.md)
+* [Bar Chart](/docs/barChart.md)
 
 ### Profile Panel
 

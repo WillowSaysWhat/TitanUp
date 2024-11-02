@@ -5,6 +5,10 @@
 <img src="/docs/assets/QuickPose.gif"/>
 </p>
 
+## NOTE
+
+QuickPose is a paid solution for pose detection. TitanUp uses the Freemium subscription that allows a single SDK Key and 100 users. This could be a problem for solo developers who are building an anti-cheat mechanism. The next tier is $200 a month which could make pose detection in iOS unacheivable for these fitness app developers. 
+
 ## Overview
 
 The app records push-up progress by utilising the front camera of an iPhone and an abstracted Python ML package named MediaPipe. This is further abstracted to Swift thanks to [QuickPose.ai](https://quickpose.ai) who ported this capability to ios and provided much of the boilerplate code for the implementation.
