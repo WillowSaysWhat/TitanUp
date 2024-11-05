@@ -29,9 +29,76 @@ Users stand to reap multitude of benefits, extending beyond physical fitness:
 * __Cultivation of Healthy Habits:__ Through consistent reinforcement and habit-forming strategies, TitanUp aspires to instil enduring lifestyle changes, fostering a culture of health consciousness and self-care.
 * __Enhanced User Engagement:___ The incorporation of AR technolofy will elevate user engagement levels, making exercise sessions not only effective but also enjoyable and immersive, thereby increasing long-term adherence and satisfaction.
 
+# Navigation
+
+There will be 2 types of navigation in the app. the first will utilise the `NavigationStack` functionality availble in SwiftUI. This can be thought of as click-button-navigate-to-page structure that is common is all types of applications. The second will utilse a TabView. 
+
+## TabView
+
+A tab view is a prefab widget that has an icon menu bar that it located in the header or footer and lets the user navigate by changing the embedded view rather than navigating using a button that executes a full page change. The TabView lets the user seamlessly switch between view by clicking on an icon located within the Tab.
+
+
+<p align="center">
+<img src="/docs/assets/TabView.png" height= "500"/>
+</p>
+
+The TabView can be used as the main view for the app and can sit within a `@ViewBuilder`. This lets the developer use conditionals to check whether the user is logged in, or whether that app should display the Login View.
+
+The example below id from the app Enid Tracker and it utilised a conditional to determine whether the login screen needs to be displayed. It calls the database and checks for a token. If the user is signed in, it bypasses the login and displays the TabView.
+
+```swift
+//
+//  ContentView.swift
+//  Enid Tracker
+//
+//  Created by Huw Williams on 23/05/2024.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+    @StateObject var viewModel = MainViewViewModel()
+    
+    var body: some View {
+        // check to see whether user is logged in.
+        if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
+            accountView
+        } else {
+            Login()
+        }
+    }
+    // TabView.
+    @ViewBuilder
+    var accountView: some View {
+        // this is the footer menu.
+        TabView {
+            HomePage(userId: viewModel.currentUserId)
+                .tabItem { Label("home", systemImage: "house")
+                }
+            SetNotificationsView()
+                .tabItem{Label("settings", systemImage: "clock")}
+            ProfileView()
+                .tabItem{Label("Profile", systemImage: "person")}
+            NewMedicineCardView()
+                .tabItem { Label("New", systemImage: "plus") }
+            
+        }
+        
+    }
+
+}
+
+
+#Preview {
+    ContentView()
+}
+
+
+```
+
 # Start View
 
-The first view the user will see.
+The first view the user will see. once the user has a logged in, it will not be shown.
 
 ## Concept
 
