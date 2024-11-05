@@ -8,22 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    let isSignedIn = true
     var body: some View {
-        NavigationView { // Step 1: Wrap in NavigationView
-            VStack {
-                NavigationLink(destination: FrontCameraView()) { // Step 2: Use NavigationLink
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 15)
-                            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 50)
-                            .shadow(radius: 5)
-                        Text("Camera")
-                            .foregroundColor(.white)
-                            .bold()
-                    }
-                }
+        
+        BackgroundImage{
+            
+            if isSignedIn {
+                HomeTabView
+            } else {
+                //Login()
             }
-            .padding()
         }
+        
+        
+    }
+}
+
+@ViewBuilder
+var HomeTabView: some View {
+    NavigationView { // Step 1: Wrap in NavigationView
+        
+        BackgroundImage{
+            TabView {
+                    // HomePage
+                    
+                    // MedalPage
+                    
+                    // ProfilePage
+            }
+        }
+        
     }
 }
 
