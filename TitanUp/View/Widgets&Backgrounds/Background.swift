@@ -20,15 +20,15 @@ struct BackgroundImage<Content: View>: View {
     }
 
     var body: some View {
-        ZStack {
-            // Background Image
-            Image("background")
-                .resizable()
-                .frame(width: UIScreen.main.bounds.height, height: UIScreen.main.bounds.height + 100)
-                .offset(x: 90, y: -50)
-
-            // Main Content
-            content
+            ZStack {
+                // Background Image
+                Image("background")
+                    .resizable()
+                    .frame(width: UIScreen.main.bounds.height, height: UIScreen.main.bounds.height + 100)
+                    .offset(x: 90, y: -50)
+                
+                // Main Content
+                content
         }
     }
 }

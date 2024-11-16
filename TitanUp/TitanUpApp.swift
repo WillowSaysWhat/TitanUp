@@ -11,7 +11,12 @@ import SwiftUI
 struct TitanUpApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                FrontCameraView()
+            }
+            
         }
     }
 }
+
+

@@ -16,3 +16,12 @@ Key features of CoreML include:
  5. __Model Personalization:__ CoreML offers on-device model training and fine-tuning, allowing apps to personalize models to users’ individual preferences and behaviors.
 
 CoreML is commonly used in applications like photo filtering, voice recognition, language translation, and augmented reality. It’s a great option if you’re looking to add AI features to apps within Apple’s ecosystem.
+
+## Training model using CreateML
+
+The first thing needed was a model. TO do this natively on iOS, CreateML is needed. CreateML is a highly abstracted, user-friendly model training tool that is designed specifically to work along side CoreML. It is a drag and drop application that removes the complexity for ML and allow the user to simply insert data and test it.
+This is what will be used to create the intelligence behind the push up detection. 
+
+## setting up a push up detection
+
+https://www.youtube.com/watch?v=ADtRfpCVklo

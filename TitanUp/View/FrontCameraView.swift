@@ -4,7 +4,7 @@ import QuickPoseSwiftUI
 
 struct FrontCameraView: View {
     // This is the sdk key for TitanUP
-    var quickPose = QuickPose(sdkKey: "01J52X1864AWPT4J282F1JH3P8")
+    var quickPose = QuickPose(sdkKey: "01JCN7DDNVYD0V1FJ8QBHG0P4P")
     // This is a QuickPose Object that counts reps using further logic to capture single reps.
     @State var pushupCounter = QuickPoseThresholdCounter()
     
@@ -38,7 +38,7 @@ struct FrontCameraView: View {
             quickPose.start(features: [.fitness(.pushUps)], onFrame: {status, image, features, feedback, landmarks in
                 
                 // This places the lines on the screen for testing.
-//                overlayImage = image
+			overlayImage = image
                 
                 // if the features variable is a pushup (pre-defined in QuickPose package.)
                 // count the pushup using the QuickPoseThresholdCounter object.
@@ -66,3 +66,4 @@ struct FrontCameraView: View {
 }
 
 //"01J52X1864AWPT4J282F1JH3P8"
+// 01JCN7DDNVYD0V1FJ8QBHG0P4P

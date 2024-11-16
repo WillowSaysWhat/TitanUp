@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
+class StartViewModel: ObservableObject {
+    let screenWidth = UIScreen.main.bounds.width
+    let ScreenHeight = UIScreen.main.bounds.height
+    
+}

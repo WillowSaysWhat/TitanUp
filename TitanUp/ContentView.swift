@@ -16,7 +16,7 @@ struct ContentView: View {
             if isSignedIn {
                 HomeTabView
             } else {
-                //Login()
+                //StartView()
             }
         }
         
