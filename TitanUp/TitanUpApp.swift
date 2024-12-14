@@ -6,17 +6,35 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import FirebaseDatabaseInternal
 
 @main
 struct TitanUpApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate;
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                FrontCameraView()
+               ContentView()
             }
+            .toolbar(.hidden)
+            
             
         }
     }
 }
 
-
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let centre = UNUserNotificationCenter.current();
+        centre.delegate = self;
+        return true;
+    }
+    
+    // add Notification app delegate.
+}

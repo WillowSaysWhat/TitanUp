@@ -29,6 +29,37 @@ struct LoginButton<Destination: View>: View {
                     .font(font)
             }
         }
-        }
     }
+}
 
+
+struct CustomTextField: View {
+    
+    let placeholder: String
+    
+    @Binding var text: String
+    
+    var body: some View {
+        TextField(placeholder, text: $text)
+            .padding()
+            .background(Color.white.opacity(0.5))
+            .cornerRadius(10)
+            .autocapitalization(.none)
+            .disableAutocorrection(true)
+            .shadow(radius: 5)
+            
+    }
+}
+
+struct CustomSecureField: View {
+    var placeholder: String
+    @Binding var text: String
+    
+    var body: some View {
+        SecureField(placeholder, text: $text)
+            .padding()
+            .background(Color.white.opacity(0.5))
+            .cornerRadius(10)
+            .shadow(radius: 5)
+    }
+}

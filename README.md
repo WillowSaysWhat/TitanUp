@@ -24,13 +24,137 @@ Click [here](/docs/designDiary.md) for an in-depth look into the objectives of T
 
 ## Understanding the User Interface
 
-TitanUp is currently in the design phase. This part of the documentation is still under construction.
+The Home Page consists of a Tabview, the home page, and profile view. This is all executed from the content page. This allows the user to flip between profile and home by tapping on the corresponding icon in the footer. To access the front camera, the user presses the center footer button.
 
 ### Login Screen
 
+The login screen holds a textfield and a securefield for user input with a button for execution. It is very recognisable as a login page.
+
+The view uses a view model object to access logic and data structures. A simple conditional checks to see whether there is an error message present and if so, it pronts it above the main title.
+
+Next, the main title sits above the text field which accepts the user's email. This is bound to the email variable in the view model.
+
+The next field is secure and accepts the user's password. this is also bound to the view model. The button executes the login method in the view model.
+
+Both fields where refactored to they could be used again by other pages. The refactored code can he found [here.](/docs/refactoredCode.md)
+
+__Currently, the login view does not return to the content view (TabView) once the user logs in. Working on it.__
+
+```swift
+import SwiftUI
+
+struct LoginView: View {
+    // access to view model.
+    @StateObject var viewModel = LoginViewModel()
+    
+    var body: some View {
+        // custom container that has a VStack and an Image.
+        BackgroundImage {
+              // aligns the 2 fields and button vertically.
+            VStack(spacing: 20) {
+                // displays error message.
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundColor(.red)
+                }
+                // Title
+                Text("Welcome Back!")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .shadow(radius: 5)
+                // Email
+                CustomTextField(placeholder: "email", text: $viewModel.email)
+                
+                
+                // Password
+                CustomSecureField(placeholder: "Password", text: $viewModel.password)
+                
+                // Login Button
+                Button(action: {
+                    viewModel.login()
+                    
+                }) {
+                    Text("Login")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.titanUpBlue)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                }
+                .padding(.top, 10)
+                
+            }
+            .padding()
+            .frame(maxWidth: 400) // Limit width of container.
+        }
+    }
+}
+```
+
+## TabView (ContentView)
+
+The content view is the default file available when a XCode project is made. It was decided that it would be the TabView page where the app would check whether the user is login or not.
+
+If the user is not logged in, the login view will be displayed, otherwise the TabView will execute and display the HomeView with in the tab view. This will be embedded with a footer showing the Home, Profile, and Medal icons. When the user clicks on an icon, the corresponding view will display.
+
+```swift
+struct ContentView: View {
+    @StateObject var contentViewModel = ContentViewModel()
+    var body: some View {
+        
+            if contentViewModel.isSignedIn, !contentViewModel.currentUserId.isEmpty {
+                HomeTabView(uid: "P83CGGUVLnUFB6v9uZ4XDhM2DeD2")        
+            } else {
+                //StartView()
+                HomeTabView(uid: "P83CGGUVLnUFB6v9uZ4XDhM2DeD2")
+                    
+            }
+    }
+}
+
+struct HomeTabView: View {
+    @State var uid: String
+    var body: some View {
+        
+        ZStack {
+            TabView {
+                HomeView(userId: uid)
+                    .tabItem { Label("home", systemImage: "clock") }
+                
+                // MedalPage
+                
+                ProfileView()
+                    .tabItem { Label("prifile", systemImage: "person") }
+            }
+            .background(Color.titanUpMidBlue)
+            VStack {
+                Spacer()
+                NavigationLink(destination: PoseNetDetection()){
+                    ZStack{
+                        Circle()
+                            .frame(width: 80)
+                            .foregroundStyle(Color.titanUpBlue)
+                        Circle()
+                            .frame(width: 70)
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
 ### Home Screen
 
+
 ### Profile Screen
+The profile screen is under construction.
+### Charts
+* [Pie Chart](/docs/pieChart.md)
+* [Bar Chart](/docs/barChart.md)
 
 ### Trophy Screen
 
@@ -38,9 +162,7 @@ TitanUp is currently in the design phase. This part of the documentation is stil
 
 ## Important Widgets
 
-### Charts
-* [Pie Chart](/docs/pieChart.md)
-* [Bar Chart](/docs/barChart.md)
+
 
 ### Profile Panel
 

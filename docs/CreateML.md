@@ -13,6 +13,6 @@ For a complete dataset the following is needed:
 The take away understanding here is: CreateML models are set up using folders and subfolders of images that are separated so the application can distinguish the different datapoints. For example. a folder named "top" or "up" would contain all the images of the straight-armed pushup position ready, and a folder named "down" or "Bottom" would hold the bent-arm pushup completed images. Each folder will contain lots of images in the same general position at the same angle. 
 
 <p align= "center">
-<img src="/docs/assets/up_1.jpg"/>
+<img src="/docs/assets/up_1.jpg"/width=300>
 </p>
 

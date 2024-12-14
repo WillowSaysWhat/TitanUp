@@ -8,11 +8,14 @@ This is how I will make the bar graph for the home page. This is a tutorial from
 TitanUp will have two bar charts. one will display daily push-ups over seven days and a monthly bar chart. the monthly chart will be a vertical bar chart and the smaller chart will be horizonal.
 </p>
 
+This is a snippet I wrote to try and understand how the Charts package worked.
+
 ```swift
 
 
 import SwiftUI
 import Charts
+
 
 struct ContentView: View {
     let viewMonths: [ViewMonth] = [
@@ -49,4 +52,55 @@ extension Date {
     }
 }
 
+```
+
+This is the code snippet that I built in the HomeView to see what it would look like on the panel. As you can see, I have used silly labels that do not correspond with the app data. The chart data is also static (numbers hardcoded).
+
+<p align="center">
+<img src="/docs/assets/BarChartTest.png"/>
+</p>
+
+The code below is the snippet that generates the bar chart in the image.
+
+```swift
+// middle column panel with charts
+struct TwoChartPanels: View {
+    let colour: Color
+    
+    let graphColour: [Color] = [.blue, .titanUpBlue, .titanUpMidBlue, .teal]
+    
+    var body: some View {
+        
+        HStack {
+            ZStack {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundStyle(colour)
+                Chart {
+                    
+                }
+                               
+            }
+            .frame(width: UIScreen.main.bounds.width * 0.6)
+            ZStack {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundStyle(colour)
+                Chart {
+                    BarMark(x: .value("Type", "Bird"),
+                            y: .value("Population", 1))
+                    
+                    BarMark(x: .value("Type", "Dog"),
+                            y: .value("Population", 2))
+                    
+                    BarMark(x: .value("Type", "Cat"),
+                            y: .value("Population", 3))
+                }
+                
+                    
+            }
+            .frame(width: UIScreen.main.bounds.width * 0.4)
+        }
+        .frame(height: UIScreen.main.bounds.height * 0.2)
+        
+    }
+}
 ```

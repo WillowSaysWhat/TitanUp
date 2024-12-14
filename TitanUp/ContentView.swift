@@ -3,44 +3,58 @@
 //  TitanUp
 //
 //  Created by Huw Williams on 12/08/2024.
-//
+// password: willow123
 
 import SwiftUI
 
 struct ContentView: View {
-    let isSignedIn = true
+    // access to view model
+    @StateObject var contentViewModel = ContentViewModel()
     var body: some View {
-        
-        BackgroundImage{
-            
-            if isSignedIn {
-                HomeTabView
+        // if the user is logged in go to Tab View,
+        // otherwise go to the start View.
+            if contentViewModel.isSignedIn, !contentViewModel.currentUserId.isEmpty {
+                HomeTabView(uid: contentViewModel.currentUserId)
             } else {
                 //StartView()
+                HomeTabView(uid: contentViewModel.currentUserId)
             }
-        }
-        
         
     }
 }
 
-@ViewBuilder
-var HomeTabView: some View {
-    NavigationView { // Step 1: Wrap in NavigationView
+struct HomeTabView: View {
+    @State var uid: String
+    var body: some View {
         
-        BackgroundImage{
+        ZStack {
             TabView {
-                    // HomePage
+                HomeView(userId: uid)
+                    .tabItem { Label("home", systemImage: "clock") }
                     
-                    // MedalPage
-                    
-                    // ProfilePage
+                // MedalPage
+                
+                ProfileView()
+                    .tabItem { Label("prifile", systemImage: "person") }
+            }
+            .background(Color.titanUpMidBlue)
+            VStack {
+                Spacer()
+                NavigationLink(destination: PoseNetDetection()){
+                    ZStack{
+                        Circle()
+                            .frame(width: 80)
+                            .foregroundStyle(Color.titanUpBlue)
+                        Circle()
+                            .frame(width: 70)
+                    }
+                }
             }
         }
-        
     }
 }
 
 #Preview {
     ContentView()
+        
 }
