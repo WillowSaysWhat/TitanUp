@@ -16,3 +16,9 @@ The take away understanding here is: CreateML models are set up using folders an
 <img src="/docs/assets/up_1.jpg"/width=300>
 </p>
 
+## Labeling Data
+
+Before stetting up CreateML and training the model, we need to annotate/categorise the images. This cannot be done in CreateML, so we will use [here].
+
+video - https://www.youtube.com/watch?v=gqlmd8p0Inc&t=436s
+
