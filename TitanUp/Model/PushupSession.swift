@@ -7,17 +7,20 @@
 
 import Foundation
 
-struct Session: Codable , Identifiable {
-    var id = UUID()
+
+struct Session: Codable, Identifiable {
+    var sessionId: String // Maps to Firestore's document ID
     var date: Date
     var pushUps: Int
+    
+    // Computed property for Identifiable
+    var id: String { sessionId }
+    
 }
 
 
-struct DailyTotal: Codable, Identifiable, Equatable {
-    var id = UUID()
-    var date: Date
-    var dailyPushUps: Int
-}
+
+
+
 
 

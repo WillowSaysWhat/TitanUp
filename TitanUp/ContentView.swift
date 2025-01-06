@@ -8,51 +8,60 @@
 import SwiftUI
 
 struct ContentView: View {
-    // access to view model
     @StateObject var contentViewModel = ContentViewModel()
+    
     var body: some View {
-        // if the user is logged in go to Tab View,
-        // otherwise go to the start View.
-            if contentViewModel.isSignedIn, !contentViewModel.currentUserId.isEmpty {
+        Group {
+            if contentViewModel.isSignedIn {
                 HomeTabView(uid: contentViewModel.currentUserId)
             } else {
-                //StartView()
-                HomeTabView(uid: contentViewModel.currentUserId)
-            }
-        
-    }
-}
-
-struct HomeTabView: View {
-    @State var uid: String
-    var body: some View {
-        
-        ZStack {
-            TabView {
-                HomeView(userId: uid)
-                    .tabItem { Label("home", systemImage: "clock") }
-                    
-                // MedalPage
+                LoginView()
                 
-                ProfileView()
-                    .tabItem { Label("prifile", systemImage: "person") }
             }
-            .background(Color.titanUpMidBlue)
-            VStack {
-                Spacer()
-                NavigationLink(destination: PoseNetDetection()){
-                    ZStack{
-                        Circle()
-                            .frame(width: 80)
-                            .foregroundStyle(Color.titanUpBlue)
-                        Circle()
-                            .frame(width: 70)
-                    }
-                }
-            }
+        }
+        .onAppear {
+            print("ContentView appeared. Current User ID: \(contentViewModel.currentUserId)")
         }
     }
 }
+
+
+struct HomeTabView: View {
+    var uid: String
+    
+    var body: some View {
+        if !uid.isEmpty {
+            ZStack {
+                TabView {
+                    HomeView(userId: uid)
+                        .tabItem { Label("home", systemImage: "clock") }
+                    ProfileView()
+                        .tabItem { Label("profile", systemImage: "person") }
+                }
+                .background(Color.titanUpMidBlue)
+                
+                VStack {
+                    Spacer()
+                    NavigationLink(destination: FrontCameraView()) {
+                        ZStack {
+                            Circle()
+                                .frame(width: 80)
+                                .foregroundStyle(Color.titanUpBlue)
+                            Circle()
+                                .frame(width: 70)
+                        }
+                    }
+                }
+            }
+        } else {
+            Text("Loading user data...")
+                .onAppear {
+                    print("HomeTabView: UID is empty.")
+                }
+        }
+    }
+}
+
 
 #Preview {
     ContentView()

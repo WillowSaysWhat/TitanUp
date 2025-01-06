@@ -20,7 +20,7 @@ struct TitanUpApp: App {
         WindowGroup {
             NavigationStack {
                ContentView()
-            }
+                            }
             .toolbar(.hidden)
             
             

@@ -1,18 +1,9 @@
-
-
-//
-//
-//  TitanUp
-//
-//  Created by Huw Williams on 04/01/2025.
-//
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-class HomeViewModel: ObservableObject {
+class FirestoreQueryViewModel: ObservableObject {
     @Published var sessions: [Session] = []
-    @Published var todaySessions: [Session] = []
     @Published var user: String = Auth.auth().currentUser?.uid ?? ""
     
     private var db = Firestore.firestore()
@@ -46,26 +37,35 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-    func filterSessionsForToday(sessions: [Session]) -> [Session] {
-            let calendar = Calendar.current
-            let today = calendar.startOfDay(for: Date()) // Midnight of today
-            
-            return sessions.filter { session in
-                let sessionDate = calendar.startOfDay(for: session.date)
-                return sessionDate == today
-            
+}
+
+import SwiftUI
+
+struct FirestoreQueryTesting: View {
+    @StateObject private var viewModel = FirestoreQueryViewModel()
+    
+    var body: some View {
+        VStack {
+            if viewModel.sessions.isEmpty {
+                Text("No sessions")
+                Text("User: \(viewModel.user)")
+            } else {
+                List(viewModel.sessions) { session in
+                    VStack(alignment: .leading) {
+                        Text("Session ID: \(session.id)")
+                        Text("Date: \(session.date.formatted(date: .abbreviated, time: .shortened))")
+                        Text("Push-ups: \(session.pushUps)")
+                    }
+                }
+            }
         }
-    }
-    func filterSessionsFor7Days(sessions: [Session]) -> [Session] {
-        let calendar = Calendar.current
-        let now = Date()
-                
-        guard let sevenDaysAgo = calendar.date(byAdding: .day, value: -7, to: now) else {
-            return []
-        }
-                
-        return sessions.filter { session in
-            return session.date >= sevenDaysAgo && session.date <= now
+        .onAppear {
+            viewModel.fetchSessions()
         }
     }
 }
+
+#Preview {
+    FirestoreQueryTesting()
+}
+

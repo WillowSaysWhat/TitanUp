@@ -5,9 +5,10 @@ import QuickPoseSwiftUI
 struct FrontCameraView: View {
     // This is the sdk key for TitanUP
     var quickPose = QuickPose(sdkKey: "01JCN7DDNVYD0V1FJ8QBHG0P4P")
+    @StateObject var viewModel = PoseNetDetectionViewModel()
     // This is a QuickPose Object that counts reps using further logic to capture single reps.
     @State var pushupCounter = QuickPoseThresholdCounter()
-    
+    @State var pushupCount: Int = 0
     @State var feedbackText: String? = nil
     @State var overlayImage: UIImage? = nil
     // QuickPose abstracted container to hold the type of pose/exercise.
@@ -46,14 +47,22 @@ struct FrontCameraView: View {
                 if let result = features[feature] {
                     let counterState = pushupCounter.count(result.value)
                     feedbackText = "\(counterState.count) Pushups"
+                    
+                    // fixes purple error for publishing from background threads.
+                    DispatchQueue.global(qos: .background).async {
+                        self.pushupCount = counterState.count
+                    }
+                    
+                    
                 }else {
                     print("error in count")
                 }
                 
             })
         }.onDisappear(){
+            viewModel.saveSessionToFirestore(pushupCount: pushupCount)
             quickPose.stop()
-                
+            
         }
     }
 }

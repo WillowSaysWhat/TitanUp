@@ -1,35 +1,36 @@
-//
-//  ContentViewModel.swift
-//  TitanUp
-//
-//  Created by Huw Williams on 18/11/2024.
-//
-
 import Foundation
 import FirebaseAuth
 
 class ContentViewModel: ObservableObject {
-    @Published var currentUserId: String = "";
-    @Published var showingNewItemView = false;
-    @Published var isSheet = false;
+    @Published var currentUserId: String = ""
+    @Published var showingNewItemView = false
+    @Published var isSheet = false
     
-    // listener that updates the app when changes are made.
-    private var handler: AuthStateDidChangeListenerHandle?;
+    // Listener for authentication changes
+    private var handler: AuthStateDidChangeListenerHandle?
     
-    // dictates whether the ContentView displays the Login or the Content TabView.
+    // Indicates if a user is signed in
     public var isSignedIn: Bool {
-        Auth.auth().currentUser != nil
+        !currentUserId.isEmpty
     }
     
-    init() { // initialises the listener and places the user ID into the currentUserId variable.
+    init() {
         self.handler = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             DispatchQueue.main.async {
-                self?.currentUserId = user?.uid ?? "";
+                if let userId = user?.uid {
+                    self?.currentUserId = userId
+                    print("User ID: \(userId)")
+                } else {
+                    self?.currentUserId = ""
+                    print("No user is signed in.")
+                }
             }
         }
     }
     
-    
-    
-    
+    deinit {
+        if let handler = handler {
+            Auth.auth().removeStateDidChangeListener(handler)
+        }
+    }
 }
