@@ -114,6 +114,7 @@ The view will need to access the login function via the view-model and the regis
 <img src="/docs/assets/TitanUpBanners/start.png"/>
 </p>
 
+
 # Login View
 
 ## Concept

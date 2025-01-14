@@ -1,173 +1,164 @@
-//
-//  HomeView.swift
-//  TitanUp
-//
-//  Created by Huw Williams on 05/11/2024.
-//
+// HomeView.swift
+// TitanUp
 
 import SwiftUI
 import Charts
 import FirebaseFirestore
 import FirebaseAuth
-// 1. Layout structure (widgets are below preview)
+
+// HomeView
 struct HomeView: View {
     let userId: String
-    
-    @ObservedObject var viewModel = HomeViewModel()
+    @StateObject var viewModel = HomeViewModel() // Single instance of the ViewModel
     
     var body: some View {
         BackgroundImage {
             VStack {
-                // pass viewmodel and firenase query)
-                ProfilePanel(colour: Color.titanUpBlue, viewModel: viewModel)
-                    
-                TwoChartPanels(colour: Color.panelColour, viewModel: viewModel)
-                
+                ProfilePanel(colour: Color.titanUpBlue) // No need to pass the viewModel explicitly
+                TwoChartPanels(colour: Color.panelColour)
                 LongChartPanel(colour: Color.panelColour)
-                
                 MedalPanel(colour: Color.panelColour)
             }
         }
+        .environmentObject(viewModel) // Pass the ViewModel to the environment
     }
 }
 
 #Preview {
     HomeView(userId: "P83CGGUVLnUFB6v9uZ4XDhM2DeD2")
 }
-//
-//
-//
-// panels start here
-//
-// top profile panel
+
+// ProfilePanel
 struct ProfilePanel: View {
-    @ObservedObject var viewModel: HomeViewModel
     let colour: Color
-    // firebase query
-    init(colour: Color, viewModel: HomeViewModel) {
-        self.colour = colour
-        self.viewModel = viewModel
-    }
-var body: some View {
-    ZStack {
-        RoundedRectangle(cornerRadius: 15)
-            .foregroundStyle(colour)
-        Circle()
-            .frame(width: 130)
-            .offset(x: UIScreen.main.bounds.width * -0.29,
-                    y: UIScreen.main.bounds.height * 0.05)
-            .foregroundStyle(Color.titanUpMidBlue)
-        
-        Image("viking")
-            .resizable()
-            .scaledToFit()
-            .frame(width: 120)
-            .clipShape(Circle())
-            .offset(x: UIScreen.main.bounds.width * -0.29,
-                    y: UIScreen.main.bounds.height * 0.05)
+    @EnvironmentObject var viewModel: HomeViewModel // Use environment object
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 15)
+                .foregroundStyle(colour)
+            Circle()
+                .frame(width: 130)
+                .offset(x: UIScreen.main.bounds.width * -0.29,
+                        y: UIScreen.main.bounds.height * 0.05)
+                .foregroundStyle(Color.titanUpMidBlue)
+            
+            Image("viking")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 120)
+                .clipShape(Circle())
+                .offset(x: UIScreen.main.bounds.width * -0.29,
+                        y: UIScreen.main.bounds.height * 0.05)
         }
-    .frame(height: UIScreen.main.bounds.height * 0.30)
+        .frame(height: UIScreen.main.bounds.height * 0.30)
     }
 }
 
-
-//
-// middle column panel with charts
+// TwoChartPanels
 struct TwoChartPanels: View {
     let colour: Color
-    @StateObject var viewModel = HomeViewModel()
-    
-    
+    @EnvironmentObject var viewModel: HomeViewModel // Use environment object
+    @State private var PieIsAnimated: Bool = false
+    @State private var animatedData: [Session] = []
+    @State private var pieTrigger: Double = 0
+    @State private var barTrigger: Double = 0
     var body: some View {
-        
         HStack {
             ZStack {
-                
                 RoundedRectangle(cornerRadius: 15)
                     .foregroundStyle(colour)
-                if viewModel.sessions.isEmpty {
+                if viewModel.todaySessions.isEmpty {
                     Text("No Sessions")
                 } else {
-                    var today = viewModel.filterSessionsForToday(sessions: viewModel.sessions)
-                    Chart(today) {session in
-                        SectorMark(angle: .value("reps", session.pushUps ), innerRadius: .ratio(0.3), angularInset: 1.2)
-                            .cornerRadius(5)
-                            
+                    Chart(viewModel.todaySessions) { session in
+                        
+                            SectorMark(angle: .value("reps", session.pushUps), innerRadius: .ratio(0.3), angularInset: 1.2)
+                                .cornerRadius(5)
+                        
                     }
+                    .opacity(pieTrigger)
+                    .onAppear() {
+                        withAnimation(.linear(duration: 1.5)){
+                            pieTrigger = 1
+                        }
+                    }
+                    
+                    
                 }
-                
             }
             .frame(width: UIScreen.main.bounds.width * 0.6)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 15)
                     .foregroundStyle(colour)
-                // weekly bar chart (7 days
-                if viewModel.sessions.isEmpty {
+                if viewModel.weekSessions.isEmpty {
                     Text("No Sessions")
                 } else {
-                    let sevendays = viewModel.filterSessionsFor7Days(sessions: viewModel.sessions)
-                    Chart(sevendays) { session in
+                    Chart(viewModel.weekSessions) { session in
                         BarMark(x: .value("date", session.date),
-                                y: .value ("push ups", session.pushUps))
+                                y: .value("push ups", session.pushUps))
                     }
                     .padding()
-                }
-                
+                    .opacity(barTrigger)
+                    .onAppear {
+                        withAnimation(.linear(duration: 2)){
+                            barTrigger = 1
+                        }
+                    }
                     
+                    
+                }
             }
             .frame(width: UIScreen.main.bounds.width * 0.4)
         }
         .frame(height: UIScreen.main.bounds.height * 0.2)
-        // bar chart date formatter
-        
     }
-    private func formmatedTime(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        return formatter.string(from: date)
+} // end of view
+
+
+// LongChartPanel
+struct LongChartPanel: View {
+    let colour: Color
+    @EnvironmentObject var viewModel: HomeViewModel // Use environment object
+    @State private var trigger: Double = 0
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 15)
+                .foregroundStyle(colour)
+                .frame(width: UIScreen.main.bounds.width)
+            
+            if viewModel.monthSessions.isEmpty {
+                Text("No Sessions")
+            } else {
+                Chart(viewModel.monthSessions) { session in
+                    BarMark(x: .value("date", session.date),
+                            y: .value("push ups", session.pushUps))
+                }
+                .padding()
+                .opacity(trigger)
+                .onAppear() {
+                    withAnimation(.linear(duration: 3.5)) {
+                        trigger = 1
+                    }
+                }
+            }
+        }
+        .frame(height: UIScreen.main.bounds.height * 0.2)
     }
-    
 }
 
-
-
-
-
-    //
-    // long bar chart for monthly display
-    struct LongChartPanel: View {
-        let colour: Color
-        // firebase query
-        var body: some View {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .foregroundStyle(colour)
-                    .frame(width: UIScreen.main.bounds.width)
-                
-                
-            }
-            .frame(height: UIScreen.main.bounds.height * 0.2)
+// MedalPanel
+struct MedalPanel: View {
+    let colour: Color
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 15)
+                .opacity(0.3)
+                .foregroundStyle(colour)
+                .frame(width: UIScreen.main.bounds.width)
         }
-    }
-
-
-
-
-
-
-    //
-    // medal bar at the bottom.
-    struct MedalPanel: View{
-        let colour: Color
-        // view model
-        var body: some View {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .opacity(0.3)
-                    .foregroundStyle(colour)
-                    .frame(width: UIScreen.main.bounds.width)
-            }
-            .frame(height: UIScreen.main.bounds.height * 0.4)
+        .frame(height: UIScreen.main.bounds.height * 0.4)
     }
 }

@@ -10,7 +10,6 @@ import SwiftUI
 struct LoginView: View {
     // access to view model.
     @StateObject var viewModel = LoginViewModel()
-    
     var body: some View {
         // custom container that has a VStack and an Image.
         BackgroundImage {
@@ -60,3 +59,5 @@ struct LoginView: View {
 #Preview {
     LoginView()
 }
+
+

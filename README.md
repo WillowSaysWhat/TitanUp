@@ -94,6 +94,56 @@ struct LoginView: View {
 }
 ```
 
+## LoginViewModel
+
+The Login ViewModel accepts the data from the view (name, email, password) and uses it to authenticate. Once a taken has been create within Firebase, the user should not need to log in again.
+
+```swift
+//
+//  LoginViewModel.swift
+//  TitanUp
+//
+//  Created by Huw Williams on 05/11/2024.
+//
+
+import Foundation
+import FirebaseAuth
+
+class LoginViewModel: ObservableObject {
+    @Published var email = "";
+    @Published var password = "";
+    @Published var errorMessage = "";
+    
+    
+    func login() {
+        guard validate() else {
+            return;
+        }
+        Auth.auth().signIn(withEmail: email, password: password);
+    }
+    
+    // this checks that a passweord as been empty and an actual email is entered.
+    private func validate() -> Bool{
+        
+        self.errorMessage = ""
+        
+        guard !email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              !password.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            errorMessage = "please enter login details.";
+            return false;
+        }
+        guard email.contains("@") && email.contains(".") else {
+            errorMessage = "please enter a valid email."
+            return false;
+        }
+        return true;
+    }
+}
+
+
+
+```
+
 ## TabView (ContentView)
 
 The content view is the default file available when a XCode project is made. It was decided that it would be the TabView page where the app would check whether the user is login or not.

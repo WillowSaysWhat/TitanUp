@@ -30,12 +30,17 @@ struct FrontCameraView: View {
         }.overlay(alignment: .bottom) {
             //displays pushup count.
             if let feedbackText = feedbackText {
+                // count displayed on the screen.
                 Text(feedbackText)
                     .font(.system(size: fontSize, weight: .semibold))
                     .foregroundColor(.white)
             }
         }
         .onAppear { // when that screen appears, the pose detection starts.
+            
+            // resets from previous session.
+            pushupCounter.reset()
+            pushupCount = 0
             quickPose.start(features: [.fitness(.pushUps)], onFrame: {status, image, features, feedback, landmarks in
                 
                 // This places the lines on the screen for testing.
@@ -60,8 +65,11 @@ struct FrontCameraView: View {
                 
             })
         }.onDisappear(){
+            // save to firestore.
             viewModel.saveSessionToFirestore(pushupCount: pushupCount)
             quickPose.stop()
+            
+            
             
         }
     }
