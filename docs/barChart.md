@@ -104,3 +104,34 @@ struct TwoChartPanels: View {
     }
 }
 ```
+
+# TitanUp Implementation
+
+The bar chart uses the same implementation as the [Pie Chart](/docs/pieChart.md). The only change is the way the data is used wthin the syntax. 
+
+```swift
+// HomeViewModel
+// is embeded within a ZStack with a rounded rectangle behind it.
+ if viewModel.weekSessions.isEmpty {
+                    Text("No Sessions")
+                } else {
+                    Chart(viewModel.weekSessions) { session in
+                        BarMark(x: .value("date", session.date),
+                                y: .value("push ups", session.pushUps))
+                    }
+                    .padding()
+                    .opacity(barTrigger)
+                    .onAppear {
+                        withAnimation(.linear(duration: 2)){
+                            barTrigger = 1
+                        }
+                    }
+                    
+                    
+                }
+```
+The bar chart fades in when the view is first displayed. Like the pie, this will eventually be changed to a better animation.
+
+<p align="center">
+<img src="/docs/assets/barChartOnHome.png" width=300/>
+</p>

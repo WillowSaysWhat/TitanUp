@@ -198,22 +198,108 @@ struct HomeTabView: View {
 ```
 
 ### Home Screen
+The home view is embedded into the tab view and is used to visualise the user's data via bar and pie charts. To achieve this, databse snapshots are filtered and stored as arrays.
 
+Firstly, the view model retrieves a snapshot. This is done immediately upon view model init.
+
+```swift
+// HomeViewModel
+func fetchSessions() {
+        // checks to see if unique id is present.
+        guard !user.isEmpty else {
+            print("User ID is empty.")
+            return
+        }
+        // gets snapshot of user data
+        db.collection("TitanUpUsers").document(user).collection("DailySessions").getDocuments { snapshot, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Error fetching sessions: \(error.localizedDescription)")
+                    return
+                }
+                // inserts data into session object and appends to array
+                self.sessions = snapshot?.documents.compactMap { document -> Session? in
+                    let data = document.data()
+                    let sessionId = document.documentID
+                    let date = (data["date"] as? Timestamp)?.dateValue() ?? Date()
+                    let pushUps = data["pushUps"] as? Int ?? 0
+                    return Session(sessionId: sessionId, date: date, pushUps: pushUps)
+                } ?? []
+                
+                // Update filtered sessions after fetching
+                self.filterSessionsForToday()
+                self.filterSessionsFor7Days()
+                self.filterSessionsFor3Months()
+                
+                print("Retrieved sessions: \(self.sessions)")
+            }
+        }
+    }
+
+```
+Once the data has been retrieved, it is placed into the `Session` object - which is constructed from this data structure.
+
+```swift
+// Model (PushupSession)
+struct Session: Codable, Identifiable, Equatable {
+
+    var sessionId: String // Maps to Firestore's document ID
+    var date: Date
+    var pushUps: Int
+    var isAnimated: Bool = false
+    // Computed property for Identifiable
+    var id: String { sessionId }
+    
+}
+
+```
+
+it is then placed in an array of `Session` located within the same class. It is named `sessions`. the `fetchSessions` function is executed within the init as mentioned ealier.
+
+```swift
+// HomeViewModel
+// this is only to top of the class, sans functions.
+class HomeViewModel: ObservableObject {
+    @Published var sessions: [Session] = []
+    @Published var todaySessions: [Session] = []
+    @Published var weekSessions: [Session] = []
+    @Published var monthSessions: [Session] = []
+    @Published var user: String = Auth.auth().currentUser?.uid ?? ""
+    
+    private var db = Firestore.firestore()
+    
+    init() {
+        fetchSessions()
+    }
+}
+
+```
+
+These session arrays are used by the Charts to visualise data. Get more info on the [Charts](#charts).
+
+## Profile Panel
+
+This displays a generic image of a viking and will soon display consistency rewards. 
+
+#### The medals on the home view are still under development.
 
 ### Profile Screen
+
 The profile screen is under construction.
+
 ### Charts
 * [Pie Chart](/docs/pieChart.md)
 * [Bar Chart](/docs/barChart.md)
 
+The charts are members of the SwiftUI charts package an are utilised as a data display feature. The three charts represent the user's daily (pie), weekly (bar), and monthly(bar) contributions to their push-up journey.  
+
 ### Trophy Screen
+
+Under development
 
 ### Front Camera Pose Detection Screen
 
-## Important Widgets
-
-
-
-### Profile Panel
+The push-up detection feature is currently utilising the [QuickPose](/docs/FrontCameraPoseDetection.md), which is a paid feature. TitanUp is utilising the freemium version for prototyping with the hope of creating its own pose detection feature.
 
 ## Software
+

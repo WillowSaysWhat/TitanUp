@@ -7,8 +7,8 @@ First accessed 31 October 2024.
 
 ## Objects needed
 
+This is just here as another example of tamplating data and preparing it for the DB. for TitanUp implementation click [here](#titanup-implementation).
 
-This is just here as another example of tamplating data and preparing it for the DB.
 ```swift
 // this is an example of converting the original bar chart data into other data
 struct ConvertedChartData: Identifiable, Equatable {
@@ -28,7 +28,7 @@ struct StackedBarChartData: Identifiable, Equatable {
 ```
 
 The two example above are very simple structs that can be used to input data into the pie chart
-Below the view struct are two. one is an object blueprint and the other is a struct with a list of mockdata to help visualise the pie chart.
+Below the view struct are two. One is an object blueprint and the other is a struct with a list of mockdata to help visualise the pie chart.
 
 ```swift
 import SwiftUI
@@ -78,7 +78,44 @@ struct MockData {
 }
 ```
 
-1. this should not be hard coded with lets say(80.0) as it will not translate if the size of the pie is changed. I think this makes the dounut. will need to check in XCode.
-2. Outer radius: 100 will make a donut chart. placing in a turnery (see example above) will let you pop out a particular slice.
-
 Take a look at the [Bar Chart](/docs/barChart.md) code.
+
+
+
+# TitanUp Implementation
+
+The pie chart on the home view uses the `viewModel.dailySessions` array to build it's segments.
+
+```swift
+// this chart sits in a ZStack and is placed on top of a rounded rectangle.
+
+// if the arry is empty display text.
+if viewModel.todaySessions.isEmpty {
+                    Text("No Sessions")
+                } else {
+                    // otherwise enumerate over array and build pie
+                    Chart(viewModel.todaySessions) { session in
+                        
+                            SectorMark(angle: .value("reps", session.pushUps), innerRadius: .ratio(0.3), angularInset: 1.2)
+                                .cornerRadius(5)
+                        
+                    }
+                    .opacity(pieTrigger)
+                    .onAppear() {
+                        // slowly fade the pie chart in.
+                        withAnimation(.linear(duration: 1.5)){
+                            pieTrigger = 1
+                        }
+                    }
+                    
+                    
+                }
+
+```
+<p align="center">
+<img src="/docs/assets/chartsOnHome.png" width=200/>
+</p>
+
+A simple animation fades the pie in after the view is initialised. This will eventually be upgraded to a building animation whenever session data is updated.
+
+The Pie will also become clickable so that more detailed information can be provided to the user. Howeve, this is out of scope for the current iteration of TitanUp.

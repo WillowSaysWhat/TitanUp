@@ -98,7 +98,7 @@ struct ContentView: View {
 
 # Start View
 
-The first view the user will see. once the user has a logged in, it will not be shown.
+The first view the user will see. once the user has a logged in, it will not be shown until the user token has expired.
 
 ## Concept
 
@@ -187,6 +187,7 @@ It will also display options to change the app theme, change profile picture, an
 
 All toggle switch and drop down box values will be saved to a firebase document for persistence.
 
+<p>
 <img src="/docs/assets/TitanUpBanners/profile.png"/>
 </p>
 
@@ -204,10 +205,13 @@ flowchart TD
     
 ```
 
-The Model wwould contain structs that hold the user data. This object would then be used with the database quiery logic also held in the model.
+The Model will contain structs that hold the user data. This object would then be used with the database quiery logic also held in the model.
 
-Traditionally, the data quieries are used in the viewModels, but this would see a divergernce from the "Don't repeat yourself" programming principle as each viewModel would need its own database quiery. This could create repeated logic in each viewModel, therefore, datebase interaction would need to be built in the Model for use by all viewModels. 
+Traditionally, the data quieries are used in the viewModels, but this would see a divergernce from the "Don't repeat yourself" programming principle as each viewModel would need its own database quiery. This could create repeated logic in each viewModel, therefore, datebase interaction would need to be built in the Model for use by all viewModels.
+
 
 MVVM could be seen as over-complicated for a simple app like TitanUp. The app could use up to 5 viewmodel objects, which seems an excessive use of memory. A single viewModel could be used for all views by using an @EnvironmentObject in the main view. This would update the single object.
+This will change the MVVM pattern to an MVC pattern. more thought will need to be given to this problem.
 
 See how the [charts](/docs/pieChart.md) on the Home Page will be built.
+
