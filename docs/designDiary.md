@@ -215,3 +215,4 @@ This will change the MVVM pattern to an MVC pattern. more thought will need to b
 
 See how the [charts](/docs/pieChart.md) on the Home Page will be built.
 
+# 
