@@ -33,7 +33,7 @@ struct HomeTabView: View {
         if !uid.isEmpty {
             ZStack {
                 TabView {
-                    HomeView(userId: uid)
+                    HomeView()
                         .tabItem { Label("home", systemImage: "clock") }
                     ProfileView()
                         .tabItem { Label("profile", systemImage: "person") }
@@ -45,10 +45,10 @@ struct HomeTabView: View {
                     NavigationLink(destination: FrontCameraView()) {
                         ZStack {
                             Circle()
-                                .frame(width: 80)
+                                .frame(width: 60)
                                 .foregroundStyle(Color.titanUpBlue)
                             Circle()
-                                .frame(width: 70)
+                                .frame(width: 50)
                         }
                     }
                 }

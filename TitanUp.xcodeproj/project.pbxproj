@@ -25,6 +25,7 @@
 		0BB8BFE52CEB7FD30094CCB9 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB8BFE42CEB7FD30094CCB9 /* FirebaseCore */; };
 		0BB8BFE72CEB7FD30094CCB9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB8BFE62CEB7FD30094CCB9 /* FirebaseFirestore */; };
 		0BB8BFE92CEB85510094CCB9 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB8BFE82CEB85510094CCB9 /* ContentViewModel.swift */; };
+		0BC859C52D58E4ED000F11D0 /* medalPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BC859C42D58E4ED000F11D0 /* medalPlaceholder.png */; };
 		0BCC9E292CDA653800AB7790 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E282CDA653800AB7790 /* LoginView.swift */; };
 		0BCC9E2B2CDA655100AB7790 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E2A2CDA655000AB7790 /* StartView.swift */; };
 		0BCC9E2D2CDA656B00AB7790 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E2C2CDA656B00AB7790 /* HomeView.swift */; };
@@ -78,6 +79,7 @@
 		0B90BA5D2C747C050032674C /* IMG_4149.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_4149.mov; sourceTree = "<group>"; };
 		0B94F6422CEB9021004DCBCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0BB8BFE82CEB85510094CCB9 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		0BC859C42D58E4ED000F11D0 /* medalPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medalPlaceholder.png; sourceTree = "<group>"; };
 		0BCC9E282CDA653800AB7790 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0BCC9E2A2CDA655000AB7790 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		0BCC9E2C2CDA656B00AB7790 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				0BDB72CF2C6A005E007B41EC /* Assets.xcassets */,
 				0B90BA5D2C747C050032674C /* IMG_4149.mov */,
 				0B103BA82D3A54FE0000604D /* TitanUp-Icon.ico */,
+				0BC859C42D58E4ED000F11D0 /* medalPlaceholder.png */,
 			);
 			path = assets;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				0B103BA92D3A54FE0000604D /* TitanUp-Icon.ico in Resources */,
 				0B94F6432CEB9021004DCBCE /* GoogleService-Info.plist in Resources */,
 				0BCC9E402CDA67F200AB7790 /* omid-armin-Wo7OTDRS2Io-unsplash.jpg in Resources */,
+				0BC859C52D58E4ED000F11D0 /* medalPlaceholder.png in Resources */,
 				0B90BA5E2C747C050032674C /* IMG_4149.mov in Resources */,
 				0BE3E0642CECF6FF0010CCEA /* viking.jpg in Resources */,
 			);

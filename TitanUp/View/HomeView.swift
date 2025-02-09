@@ -8,24 +8,28 @@ import FirebaseAuth
 
 // HomeView
 struct HomeView: View {
-    let userId: String
+    
     @StateObject var viewModel = HomeViewModel() // Single instance of the ViewModel
+    
     
     var body: some View {
         BackgroundImage {
-            VStack {
-                ProfilePanel(colour: Color.titanUpBlue) // No need to pass the viewModel explicitly
+            VStack(alignment: .center, spacing: 10) {
+                
+                ProfilePanel(colour: Color.titanUpBlue)
                 TwoChartPanels(colour: Color.panelColour)
                 LongChartPanel(colour: Color.panelColour)
                 MedalPanel(colour: Color.panelColour)
+                Spacer()
             }
+            
         }
         .environmentObject(viewModel) // Pass the ViewModel to the environment
     }
 }
 
 #Preview {
-    HomeView(userId: "P83CGGUVLnUFB6v9uZ4XDhM2DeD2")
+    HomeView()
 }
 
 // ProfilePanel
@@ -59,10 +63,9 @@ struct ProfilePanel: View {
 struct TwoChartPanels: View {
     let colour: Color
     @EnvironmentObject var viewModel: HomeViewModel // Use environment object
-    @State private var PieIsAnimated: Bool = false
-    @State private var animatedData: [Session] = []
-    @State private var pieTrigger: Double = 0
-    @State private var barTrigger: Double = 0
+    
+    
+    
     var body: some View {
         HStack {
             ZStack {
@@ -75,16 +78,9 @@ struct TwoChartPanels: View {
                         
                             SectorMark(angle: .value("reps", session.pushUps), innerRadius: .ratio(0.3), angularInset: 1.2)
                                 .cornerRadius(5)
-                        
+                                .foregroundStyle(getRandomColor(value: session.pushUps))
+                                                        
                     }
-                    .opacity(pieTrigger)
-                    .onAppear() {
-                        withAnimation(.linear(duration: 1.5)){
-                            pieTrigger = 1
-                        }
-                    }
-                    
-                    
                 }
             }
             .frame(width: UIScreen.main.bounds.width * 0.6)
@@ -96,17 +92,15 @@ struct TwoChartPanels: View {
                     Text("No Sessions")
                 } else {
                     Chart(viewModel.weekSessions) { session in
-                        BarMark(x: .value("date", session.date),
-                                y: .value("push ups", session.pushUps))
+                        BarMark(x: .value("Date", Calendar.current.startOfDay(for: session.date)),
+                                y: .value("push ups", session.pushUps)
+                        )
+                        .foregroundStyle(getRandomColor(value: session.pushUps))
                     }
                     .padding()
-                    .opacity(barTrigger)
-                    .onAppear {
-                        withAnimation(.linear(duration: 2)){
-                            barTrigger = 1
-                        }
-                    }
-                    
+                    .chartXAxis(.hidden)
+                    .chartYScale(domain: 0...100) // height of Y axis
+                    .animation(.bouncy, value: viewModel.weekSessions)
                     
                 }
             }
@@ -121,7 +115,7 @@ struct TwoChartPanels: View {
 struct LongChartPanel: View {
     let colour: Color
     @EnvironmentObject var viewModel: HomeViewModel // Use environment object
-    @State private var trigger: Double = 0
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 15)
@@ -131,34 +125,123 @@ struct LongChartPanel: View {
             if viewModel.monthSessions.isEmpty {
                 Text("No Sessions")
             } else {
-                Chart(viewModel.monthSessions) { session in
-                    BarMark(x: .value("date", session.date),
-                            y: .value("push ups", session.pushUps))
+                // still trying to work this chart out.
+                Chart(viewModel.weekSessions) { session in
+                    BarMark(x: .value("Date", Calendar.current.startOfDay(for: session.date)),
+                            y: .value("push ups", session.pushUps)
+                    )
+                    .lineStyle(StrokeStyle(lineWidth: 2, lineCap: .round))
+                    .interpolationMethod(.cardinal)
+                    .foregroundStyle(getRandomColor(value: session.pushUps))
+                    
+                    AreaMark(x: .value("Date", Calendar.current.startOfDay(for: session.date)),
+                             y: .value("push ups", session.pushUps)
+                    )
+                    .interpolationMethod(.cardinal)
+                    .foregroundStyle(LinearGradient(
+                        gradient:Gradient(colors: [
+                            .titanUpBlue.opacity(1.0),
+                            .titanUpBlue.opacity(0.0)
+                        ]),
+                        startPoint: .top,
+                        endPoint: .init(x: 0.5, y: 0.9)
+                        )
+                    )
                 }
+                .chartYScale(domain: 0...50) // height of Y axis
+                .animation(.bouncy, value: viewModel.monthSessions)
                 .padding()
-                .opacity(trigger)
-                .onAppear() {
-                    withAnimation(.linear(duration: 3.5)) {
-                        trigger = 1
-                    }
-                }
+                .frame(height: UIScreen.main.bounds.height * 0.2)
             }
+            
         }
         .frame(height: UIScreen.main.bounds.height * 0.2)
+        
     }
 }
 
 // MedalPanel
 struct MedalPanel: View {
+    let width: CGFloat = 90
+    let height: CGFloat = 90
     let colour: Color
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 15)
-                .opacity(0.3)
-                .foregroundStyle(colour)
-                .frame(width: UIScreen.main.bounds.width)
+        Grid() {
+            GridRow {
+                Image("medalPlaceholder")
+                    .resizable()
+                    .frame(width: width, height: height)
+                    .opacity(0.6)
+                    .cornerRadius(15)
+                    
+                Image("medalPlaceholder")
+                    .resizable()
+                    .frame(width: width, height: height)
+                    .opacity(0.6)
+                    .cornerRadius(15)
+                
+                Image("medalPlaceholder")
+                    .resizable()
+                    .frame(width: width, height: height)
+                    .opacity(0.6)
+                    .cornerRadius(15)
+                
+                Image("medalPlaceholder")
+                    .resizable()
+                    .frame(width: width, height: height)
+                    .opacity(0.6)
+                    .cornerRadius(15)
+            }
+            GridRow {
+                Image("medalPlaceholder")
+                    .resizable()
+                    .frame(width: width, height: height)
+                    .opacity(0.6)
+                    .cornerRadius(15)
+                
+                Image("medalPlaceholder")
+                    .resizable()
+                    .frame(width: width, height: height)
+                    .opacity(0.6)
+                    .cornerRadius(15)
+                
+                Image("medalPlaceholder")
+                    .resizable()
+                    .frame(width: width, height: height)
+                    .opacity(0.6)
+                    .cornerRadius(15)
+                
+                Image("medalPlaceholder")
+                    .resizable()
+                    .frame(width: width, height: height)
+                    .opacity(0.6)
+                    .cornerRadius(15)
+            }
+            
+            
         }
-        .frame(height: UIScreen.main.bounds.height * 0.4)
+        
+        
     }
 }
+
+// gives the colours to the charts.
+func getRandomColor(value: Int) -> Color {
+    
+    if value <= 10 {
+        return .titanUpBlue
+    }
+    if value <= 15 {
+        return .titanUpMidBlue
+    }
+    if value <= 20 {
+        return Color.blue
+    }
+    else {
+        return .gray
+        
+    }
+}
+
+
