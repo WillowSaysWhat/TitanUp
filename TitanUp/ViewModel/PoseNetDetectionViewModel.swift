@@ -29,7 +29,7 @@ class PoseNetDetectionViewModel: ObservableObject {
         // Convert session object to a dictionary, ensuring `date` is stored as a Firestore Timestamp
         let sessionData: [String: Any] = [
             "sessionId": newSession.sessionId,
-            "date": Timestamp(date: newSession.date),  // Forces Firestore to store as Timestamp
+            "date": Timestamp(date: Calendar.current.startOfDay(for: Date())),  // Forces Firestore to store as Timestamp
             "pushUps": newSession.pushUps
         ]
         

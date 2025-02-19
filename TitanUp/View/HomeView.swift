@@ -92,8 +92,9 @@ struct TwoChartPanels: View {
                     Text("No Sessions")
                 } else {
                     Chart(viewModel.weekSessions) { session in
-                        BarMark(x: .value("Date", Calendar.current.startOfDay(for: session.date)),
-                                y: .value("push ups", session.pushUps)
+                        BarMark(x: .value("Date", session.date, unit: .day),
+                                y: .value("push ups", session.pushUps),
+                                width: 15
                         )
                         .foregroundStyle(getRandomColor(value: session.pushUps))
                     }
@@ -126,32 +127,17 @@ struct LongChartPanel: View {
                 Text("No Sessions")
             } else {
                 // still trying to work this chart out.
-                Chart(viewModel.weekSessions) { session in
-                    BarMark(x: .value("Date", Calendar.current.startOfDay(for: session.date)),
-                            y: .value("push ups", session.pushUps)
+                Chart(viewModel.monthSessions) { session in
+                    BarMark(x: .value("Date", session.date, unit: .day),
+                            y: .value("push ups", session.pushUps),
+                            width: 15
                     )
-                    .lineStyle(StrokeStyle(lineWidth: 2, lineCap: .round))
-                    .interpolationMethod(.cardinal)
                     .foregroundStyle(getRandomColor(value: session.pushUps))
-                    
-                    AreaMark(x: .value("Date", Calendar.current.startOfDay(for: session.date)),
-                             y: .value("push ups", session.pushUps)
-                    )
-                    .interpolationMethod(.cardinal)
-                    .foregroundStyle(LinearGradient(
-                        gradient:Gradient(colors: [
-                            .titanUpBlue.opacity(1.0),
-                            .titanUpBlue.opacity(0.0)
-                        ]),
-                        startPoint: .top,
-                        endPoint: .init(x: 0.5, y: 0.9)
-                        )
-                    )
                 }
-                .chartYScale(domain: 0...50) // height of Y axis
-                .animation(.bouncy, value: viewModel.monthSessions)
                 .padding()
-                .frame(height: UIScreen.main.bounds.height * 0.2)
+                .chartXAxis(<#Visibility#>)
+                .chartYScale(domain: 0...100) // height of Y axis
+                .animation(.bouncy, value: viewModel.monthSessions)
             }
             
         }

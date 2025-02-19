@@ -58,53 +58,22 @@ class HomeViewModel: ObservableObject {
                         
                         // ✅ FILTER SESSIONS FOR TODAY, WEEK, AND MONTH
                         self.todaySessions = self.sessions.filter { Calendar.current.isDate($0.date, inSameDayAs: Date()) }
-                        self.weekSessions = self.sessions.filter { Calendar.current.isDate($0.date, equalTo: Date(), toGranularity: .weekOfYear) }
+                        self.filterWeekSessions( )
                         self.monthSessions = self.sessions.filter { Calendar.current.isDate($0.date, equalTo: Date(), toGranularity: .month) }
                         
                         print("months sessions: \(self.monthSessions.count).")
                     }
                 }
         }
-    
+    func filterWeekSessions() {
+        let calendar = Calendar.current
+        let sevenDaysAgo = calendar.date(byAdding: .day, value: -7, to: Date()) ?? Date()
+        
+        self.weekSessions = self.sessions.filter { session in
+            return session.date >= sevenDaysAgo // ✅ Keeps only last 7 days
+        }
+    }
 
     
-    func filterSessionsForToday() {
-        let calendar = Calendar.current
-        let today = calendar.startOfDay(for: Date()) // Midnight of today
-        print( "today: \(today)")
-        self.todaySessions = sessions.filter { session in
-            let sessionDate = calendar.startOfDay(for: session.date)
-            print("sessionDate: \(sessionDate)")
-            return sessionDate == today
-        }
-    }
-    
-    func filterSessionsFor7Days() {
-        let calendar = Calendar.current
-        let now = Date()
-        
-        guard let sevenDaysAgo = calendar.date(byAdding: .day, value: -7, to: now) else {
-            self.weekSessions = [] // Clear the list if the calculation fails
-            return
-        }
-        
-        self.weekSessions = sessions.filter { session in
-            return session.date >= sevenDaysAgo && session.date <= now
-        }
-    }
-    
-    func filterSessionsFor3Months() {
-        let calendar = Calendar.current
-        let now = Date()
-        
-        guard let threeMonthsAgo = calendar.date(byAdding: .month, value: -3, to: now) else {
-            self.monthSessions = [] // Clear the list if the calculation fails
-            return
-        }
-        
-        self.monthSessions = sessions.filter { session in
-            return session.date >= threeMonthsAgo && session.date <= now
-        }
-    }
 }
 

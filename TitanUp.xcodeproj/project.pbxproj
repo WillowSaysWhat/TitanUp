@@ -10,6 +10,7 @@
 		0B103BA92D3A54FE0000604D /* TitanUp-Icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 0B103BA82D3A54FE0000604D /* TitanUp-Icon.ico */; };
 		0B1C5FDF2CEDDB13007DAB5F /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1C5FDE2CEDDB13007DAB5F /* MockData.swift */; };
 		0B1C5FE12CEE0B7D007DAB5F /* PoseNetDetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1C5FE02CEE0B7D007DAB5F /* PoseNetDetectionViewModel.swift */; };
+		0B1E68D82D5A3E35005D5BBE /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1E68D72D5A3E35005D5BBE /* SwiftUIView.swift */; };
 		0B3D6CE92C6A246C00F52EA9 /* QuickPoseCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6CE82C6A246C00F52EA9 /* QuickPoseCamera */; };
 		0B3D6CEB2C6A246C00F52EA9 /* QuickPoseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6CEA2C6A246C00F52EA9 /* QuickPoseCore */; };
 		0B3D6CED2C6A246C00F52EA9 /* QuickPoseMP in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6CEC2C6A246C00F52EA9 /* QuickPoseMP */; };
@@ -74,6 +75,7 @@
 		0B103BA82D3A54FE0000604D /* TitanUp-Icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = "TitanUp-Icon.ico"; sourceTree = "<group>"; };
 		0B1C5FDE2CEDDB13007DAB5F /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		0B1C5FE02CEE0B7D007DAB5F /* PoseNetDetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseNetDetectionViewModel.swift; sourceTree = "<group>"; };
+		0B1E68D72D5A3E35005D5BBE /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		0B6F28582CE5F5260012F4E6 /* Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets.swift; sourceTree = "<group>"; };
 		0B6F285A2CE60C180012F4E6 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		0B90BA5D2C747C050032674C /* IMG_4149.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_4149.mov; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				0BCC9E2E2CDA657F00AB7790 /* ProfileView.swift */,
 				0B6F285A2CE60C180012F4E6 /* RegisterView.swift */,
 				0BED006B2CE6112800C12A34 /* FrontCameraView.swift */,
+				0B1E68D72D5A3E35005D5BBE /* SwiftUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			files = (
 				0BDB72CE2C6A005D007B41EC /* ContentView.swift in Sources */,
 				0BCC9E2B2CDA655100AB7790 /* StartView.swift in Sources */,
+				0B1E68D82D5A3E35005D5BBE /* SwiftUIView.swift in Sources */,
 				0BDB72CC2C6A005D007B41EC /* TitanUpApp.swift in Sources */,
 				0BCC9E3E2CDA66D400AB7790 /* PushupSession.swift in Sources */,
 				0BCC9E352CDA664800AB7790 /* HomeViewModel.swift in Sources */,
