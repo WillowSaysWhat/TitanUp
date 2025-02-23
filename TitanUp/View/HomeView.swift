@@ -38,33 +38,81 @@ struct ProfilePanel: View {
     @EnvironmentObject var viewModel: HomeViewModel // Use environment object
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 15)
-                .foregroundStyle(colour)
-            Circle()
-                .frame(width: 130)
-                .offset(x: UIScreen.main.bounds.width * -0.29,
+        
+            ZStack {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundStyle(colour)
+                Circle()
+                    .frame(width: 130)
+                    .offset(x: UIScreen.main.bounds.width * -0.29,
+                            y: UIScreen.main.bounds.height * 0.05)
+                    .foregroundStyle(Color.titanUpMidBlue)
+                
+                Image("viking")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 120)
+                    .clipShape(Circle())
+                    .offset(x: UIScreen.main.bounds.width * -0.29,
+                            y: UIScreen.main.bounds.height * 0.05)
+                
+                // trophy grid
+                Grid() {
+                    GridRow {
+                        Image(viewModel.medalsTrophies.oneSession ? "Trophy1" : "trophyPlaceholder")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .opacity(viewModel.medalsTrophies.oneSession ? 1 : 0.6)
+                            .cornerRadius(15)
+                        
+                        Image(viewModel.medalsTrophies.twoSession ? "Trophy2" : "trophyPlaceholder")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .opacity(viewModel.medalsTrophies.twoSession ? 1 : 0.6)
+                            .cornerRadius(15)
+                        
+                        Image(viewModel.medalsTrophies.fiveSession ? "Trophy3" : "trophyPlaceholder")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .opacity(viewModel.medalsTrophies.fiveSession ? 1 : 0.6)
+                            .cornerRadius(15)
+                    }
+                    GridRow {
+                        Image(viewModel.medalsTrophies.eightSession ? "Trophy9" : "trophyPlaceholder")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .opacity(0.6)
+                            .cornerRadius(15)
+                        
+                        Image(viewModel.medalsTrophies.tenSession ? "Trophy4" : "trophyPlaceholder")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .opacity(0.6)
+                            .cornerRadius(15)
+                        
+                        Image(viewModel.medalsTrophies.fifteenSession ? "Trophy5" : "trophyPlaceholder")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .opacity(0.6)
+                            .cornerRadius(15)
+                    }
+                }
+                .offset(x: UIScreen.main.bounds.width * 0.22,
                         y: UIScreen.main.bounds.height * 0.05)
-                .foregroundStyle(Color.titanUpMidBlue)
+            }
+            .frame(height: UIScreen.main.bounds.height * 0.30)
             
-            Image("viking")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 120)
-                .clipShape(Circle())
-                .offset(x: UIScreen.main.bounds.width * -0.29,
-                        y: UIScreen.main.bounds.height * 0.05)
-        }
-        .frame(height: UIScreen.main.bounds.height * 0.30)
+        
+        
+        
     }
 }
+
 
 // TwoChartPanels
 struct TwoChartPanels: View {
     let colour: Color
     @EnvironmentObject var viewModel: HomeViewModel // Use environment object
-    
-    
     
     var body: some View {
         HStack {
@@ -135,7 +183,6 @@ struct LongChartPanel: View {
                     .foregroundStyle(getRandomColor(value: session.pushUps))
                 }
                 .padding()
-                .chartXAxis(<#Visibility#>)
                 .chartYScale(domain: 0...100) // height of Y axis
                 .animation(.bouncy, value: viewModel.monthSessions)
             }
@@ -148,6 +195,7 @@ struct LongChartPanel: View {
 
 // MedalPanel
 struct MedalPanel: View {
+    @EnvironmentObject var viewModel: HomeViewModel
     let width: CGFloat = 90
     let height: CGFloat = 90
     let colour: Color
@@ -155,53 +203,53 @@ struct MedalPanel: View {
     var body: some View {
         Grid() {
             GridRow {
-                Image("medalPlaceholder")
+                Image(viewModel.medalsTrophies.firstDay ? "Medal1" :"medalPlaceholder")
                     .resizable()
                     .frame(width: width, height: height)
-                    .opacity(0.6)
+                    .opacity(viewModel.medalsTrophies.firstDay ? 1 : 0.6)
                     .cornerRadius(15)
                     
-                Image("medalPlaceholder")
+                Image(viewModel.medalsTrophies.seventhDay ? "Medal2" :"medalPlaceholder")
                     .resizable()
                     .frame(width: width, height: height)
-                    .opacity(0.6)
+                    .opacity(viewModel.medalsTrophies.seventhDay ? 1: 0.6)
                     .cornerRadius(15)
                 
-                Image("medalPlaceholder")
+                Image(viewModel.medalsTrophies.thirtyDay ? "Medal3" : "medalPlaceholder")
                     .resizable()
                     .frame(width: width, height: height)
-                    .opacity(0.6)
+                    .opacity(viewModel.medalsTrophies.thirtyDay ? 1: 0.6)
                     .cornerRadius(15)
                 
-                Image("medalPlaceholder")
+                Image(viewModel.medalsTrophies.sixtyDay ? "Medal4" : "medalPlaceholder")
                     .resizable()
                     .frame(width: width, height: height)
-                    .opacity(0.6)
+                    .opacity(viewModel.medalsTrophies.sixtyDay ? 1 : 0.6)
                     .cornerRadius(15)
             }
             GridRow {
-                Image("medalPlaceholder")
+                Image(viewModel.medalsTrophies.ninetyDay ? "Medal5" : "medalPlaceholder")
                     .resizable()
                     .frame(width: width, height: height)
-                    .opacity(0.6)
+                    .opacity(viewModel.medalsTrophies.ninetyDay ? 1 : 0.6)
                     .cornerRadius(15)
                 
-                Image("medalPlaceholder")
+                Image(viewModel.medalsTrophies.OneFiftyDay ? "Medal6" : "medalPlaceholder")
                     .resizable()
                     .frame(width: width, height: height)
-                    .opacity(0.6)
+                    .opacity(viewModel.medalsTrophies.OneFiftyDay ? 1 : 0.6)
                     .cornerRadius(15)
                 
-                Image("medalPlaceholder")
+                Image(viewModel.medalsTrophies.twoHundredDay ? "Medal7" :"medalPlaceholder")
                     .resizable()
                     .frame(width: width, height: height)
-                    .opacity(0.6)
+                    .opacity(viewModel.medalsTrophies.twoHundredDay ? 1 : 0.6)
                     .cornerRadius(15)
                 
-                Image("medalPlaceholder")
+                Image(viewModel.medalsTrophies.threeHundredDay ? "Medal8" :"medalPlaceholder")
                     .resizable()
                     .frame(width: width, height: height)
-                    .opacity(0.6)
+                    .opacity(viewModel.medalsTrophies.threeHundredDay ? 1 : 0.6)
                     .cornerRadius(15)
             }
             

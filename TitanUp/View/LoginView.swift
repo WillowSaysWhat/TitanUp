@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(\.dismiss) var dismiss
     // access to view model.
     @StateObject var viewModel = LoginViewModel()
     var body: some View {
@@ -36,6 +37,9 @@ struct LoginView: View {
                 // Login Button
                 Button(action: {
                     viewModel.login()
+                    dismiss
+                    
+                    
                     
                     
                 }) {

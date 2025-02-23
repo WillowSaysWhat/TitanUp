@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B103BA92D3A54FE0000604D /* TitanUp-Icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 0B103BA82D3A54FE0000604D /* TitanUp-Icon.ico */; };
-		0B1C5FDF2CEDDB13007DAB5F /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1C5FDE2CEDDB13007DAB5F /* MockData.swift */; };
 		0B1C5FE12CEE0B7D007DAB5F /* PoseNetDetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1C5FE02CEE0B7D007DAB5F /* PoseNetDetectionViewModel.swift */; };
-		0B1E68D82D5A3E35005D5BBE /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1E68D72D5A3E35005D5BBE /* SwiftUIView.swift */; };
+		0B2D7B4C2D68AFF500D5F996 /* MedalsAndTrophies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2D7B4B2D68AFF500D5F996 /* MedalsAndTrophies.swift */; };
 		0B3D6CE92C6A246C00F52EA9 /* QuickPoseCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6CE82C6A246C00F52EA9 /* QuickPoseCamera */; };
 		0B3D6CEB2C6A246C00F52EA9 /* QuickPoseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6CEA2C6A246C00F52EA9 /* QuickPoseCore */; };
 		0B3D6CED2C6A246C00F52EA9 /* QuickPoseMP in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6CEC2C6A246C00F52EA9 /* QuickPoseMP */; };
@@ -36,7 +35,6 @@
 		0BCC9E352CDA664800AB7790 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E342CDA664800AB7790 /* HomeViewModel.swift */; };
 		0BCC9E372CDA665800AB7790 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E362CDA665800AB7790 /* ProfileViewModel.swift */; };
 		0BCC9E3A2CDA666F00AB7790 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E392CDA666F00AB7790 /* User.swift */; };
-		0BCC9E3C2CDA669B00AB7790 /* DBLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E3B2CDA669B00AB7790 /* DBLogic.swift */; };
 		0BCC9E3E2CDA66D400AB7790 /* PushupSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E3D2CDA66D400AB7790 /* PushupSession.swift */; };
 		0BCC9E402CDA67F200AB7790 /* omid-armin-Wo7OTDRS2Io-unsplash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0BCC9E3F2CDA67F200AB7790 /* omid-armin-Wo7OTDRS2Io-unsplash.jpg */; };
 		0BCC9E432CDA6D4600AB7790 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E422CDA6D4600AB7790 /* Background.swift */; };
@@ -73,9 +71,8 @@
 
 /* Begin PBXFileReference section */
 		0B103BA82D3A54FE0000604D /* TitanUp-Icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = "TitanUp-Icon.ico"; sourceTree = "<group>"; };
-		0B1C5FDE2CEDDB13007DAB5F /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		0B1C5FE02CEE0B7D007DAB5F /* PoseNetDetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseNetDetectionViewModel.swift; sourceTree = "<group>"; };
-		0B1E68D72D5A3E35005D5BBE /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		0B2D7B4B2D68AFF500D5F996 /* MedalsAndTrophies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalsAndTrophies.swift; sourceTree = "<group>"; };
 		0B6F28582CE5F5260012F4E6 /* Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets.swift; sourceTree = "<group>"; };
 		0B6F285A2CE60C180012F4E6 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		0B90BA5D2C747C050032674C /* IMG_4149.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_4149.mov; sourceTree = "<group>"; };
@@ -91,7 +88,6 @@
 		0BCC9E342CDA664800AB7790 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0BCC9E362CDA665800AB7790 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		0BCC9E392CDA666F00AB7790 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		0BCC9E3B2CDA669B00AB7790 /* DBLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLogic.swift; sourceTree = "<group>"; };
 		0BCC9E3D2CDA66D400AB7790 /* PushupSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupSession.swift; sourceTree = "<group>"; };
 		0BCC9E3F2CDA67F200AB7790 /* omid-armin-Wo7OTDRS2Io-unsplash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "omid-armin-Wo7OTDRS2Io-unsplash.jpg"; sourceTree = "<group>"; };
 		0BCC9E422CDA6D4600AB7790 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
@@ -164,10 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				0BCC9E392CDA666F00AB7790 /* User.swift */,
-				0BCC9E3B2CDA669B00AB7790 /* DBLogic.swift */,
 				0BCC9E3D2CDA66D400AB7790 /* PushupSession.swift */,
 				0BE3E0612CECAC690010CCEA /* Extensions.swift */,
-				0B1C5FDE2CEDDB13007DAB5F /* MockData.swift */,
+				0B2D7B4B2D68AFF500D5F996 /* MedalsAndTrophies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,7 +191,6 @@
 				0BCC9E2E2CDA657F00AB7790 /* ProfileView.swift */,
 				0B6F285A2CE60C180012F4E6 /* RegisterView.swift */,
 				0BED006B2CE6112800C12A34 /* FrontCameraView.swift */,
-				0B1E68D72D5A3E35005D5BBE /* SwiftUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -425,7 +419,6 @@
 			files = (
 				0BDB72CE2C6A005D007B41EC /* ContentView.swift in Sources */,
 				0BCC9E2B2CDA655100AB7790 /* StartView.swift in Sources */,
-				0B1E68D82D5A3E35005D5BBE /* SwiftUIView.swift in Sources */,
 				0BDB72CC2C6A005D007B41EC /* TitanUpApp.swift in Sources */,
 				0BCC9E3E2CDA66D400AB7790 /* PushupSession.swift in Sources */,
 				0BCC9E352CDA664800AB7790 /* HomeViewModel.swift in Sources */,
@@ -433,15 +426,14 @@
 				0BCC9E332CDA662B00AB7790 /* StartViewModel.swift in Sources */,
 				0BEF0EA72D2968B1002E6E4D /* FirestoreQueryTesting.swift in Sources */,
 				0BCC9E312CDA660F00AB7790 /* LoginViewModel.swift in Sources */,
-				0B1C5FDF2CEDDB13007DAB5F /* MockData.swift in Sources */,
 				0B1C5FE12CEE0B7D007DAB5F /* PoseNetDetectionViewModel.swift in Sources */,
 				0B6F285B2CE60C180012F4E6 /* RegisterView.swift in Sources */,
 				0BCC9E372CDA665800AB7790 /* ProfileViewModel.swift in Sources */,
 				0BE3E0602CECA9C40010CCEA /* RegisterViewModel.swift in Sources */,
-				0BCC9E3C2CDA669B00AB7790 /* DBLogic.swift in Sources */,
 				0BE3E0622CECAC690010CCEA /* Extensions.swift in Sources */,
 				0BB8BFE92CEB85510094CCB9 /* ContentViewModel.swift in Sources */,
 				0BCC9E3A2CDA666F00AB7790 /* User.swift in Sources */,
+				0B2D7B4C2D68AFF500D5F996 /* MedalsAndTrophies.swift in Sources */,
 				0BED006C2CE6112800C12A34 /* FrontCameraView.swift in Sources */,
 				0BCC9E292CDA653800AB7790 /* LoginView.swift in Sources */,
 				0BCC9E2F2CDA657F00AB7790 /* ProfileView.swift in Sources */,

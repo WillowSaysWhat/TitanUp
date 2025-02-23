@@ -15,7 +15,7 @@ struct ContentView: View {
             if contentViewModel.isSignedIn {
                 HomeTabView(uid: contentViewModel.currentUserId)
             } else {
-                LoginView()
+                StartView()
                 
             }
         }
