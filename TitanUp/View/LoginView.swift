@@ -34,14 +34,11 @@ struct LoginView: View {
                 // Password
                 CustomSecureField(placeholder: "Password", text: $viewModel.password)
                 
+                
                 // Login Button
                 Button(action: {
                     viewModel.login()
-                    dismiss
-                    
-                    
-                    
-                    
+                    dismiss()
                 }) {
                     Text("Login")
                         .font(.headline)

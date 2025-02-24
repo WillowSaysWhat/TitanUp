@@ -18,12 +18,12 @@ struct FrontCameraView: View {
     var body: some View {
         ZStack {
 //             this initialised the fake camera
-            if let url = Bundle.main.url(forResource: "IMG_4149", withExtension: "mov"){
-                QuickPoseSimulatedCameraView(useFrontCamera: true, delegate: quickPose, video: url)
-            }
+            //if let url = Bundle.main.url(forResource: "IMG_4149", withExtension: "mov"){
+                //QuickPoseSimulatedCameraView(useFrontCamera: true, delegate: quickPose, video: url)
+            //}
             
             // this commented out code is for the actual camera.
-            //QuickPoseCameraView(useFrontCamera: true, delegate: quickPose)
+            QuickPoseCameraView(useFrontCamera: true, delegate: quickPose)
             
             // This is the overlay view which appear as lines linking a virtual skeleton.
             QuickPoseOverlayView(overlayImage: $overlayImage)

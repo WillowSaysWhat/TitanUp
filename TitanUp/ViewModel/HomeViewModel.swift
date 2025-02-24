@@ -21,7 +21,7 @@ class HomeViewModel: ObservableObject {
     private var sessionListener: ListenerRegistration? // real time listener so charts update.
     private var medalListener: ListenerRegistration? // real time listener so medals update.
     
-    init() {
+    init() { // populates homepage with session data and medals.
         fetchSessionsRealTime()
         fetchMedalsAndTrophies()
         
@@ -30,7 +30,6 @@ class HomeViewModel: ObservableObject {
         saveMedalsAndTrophies()
         sessionListener?.remove()
         medalListener?.remove()
-        
     }
     
     func fetchSessionsRealTime() {
@@ -137,7 +136,9 @@ class HomeViewModel: ObservableObject {
                 
                 guard let document = documentSnapshot, document.exists else {
                     print("Medals document does not exist.")
-                    return
+                    self.saveMedalsAndTrophies()
+                    print("Medals document saved as default")
+                   return
                 }
 
                 do {
@@ -148,14 +149,16 @@ class HomeViewModel: ObservableObject {
 
                     DispatchQueue.main.async {
                         self.medalsTrophies = decodedMedals // Assign to ViewModel
-                        print("Successfully fetched medals: \(self.medalsTrophies)")
+                        // print("Successfully fetched medals: \(self.medalsTrophies)")
+                        
+                        self.checkMedal() // checks for medals to be awarded.
+                        self.checkTrophies() // checks trophies too.
                     }
                 } catch {
                     print("Error decoding medals: \(error.localizedDescription)")
                 }
             }
-        self.checkMedal() // checks for medals to be awarded.
-        self.checkTrophies() // checks trophies too.
+        
     }
 
     
@@ -271,30 +274,55 @@ class HomeViewModel: ObservableObject {
             return
         }
         if todaySessions.count == 2 {
+            medalsTrophies.oneSession = true
             medalsTrophies.twoSession = true
             return
         }
         if todaySessions.count == 5 {
+            medalsTrophies.oneSession = true
+            medalsTrophies.twoSession = true
             medalsTrophies.fiveSession = true
             return
         }
         if todaySessions.count == 8 {
+            medalsTrophies.oneSession = true
+            medalsTrophies.twoSession = true
+            medalsTrophies.fiveSession = true
             medalsTrophies.eightSession = true
             return
         }
         if todaySessions.count == 10 {
+            medalsTrophies.oneSession = true
+            medalsTrophies.twoSession = true
+            medalsTrophies.fiveSession = true
+            medalsTrophies.eightSession = true
             medalsTrophies.tenSession = true
             return
         }
         if todaySessions.count == 15 {
+            medalsTrophies.oneSession = true
+            medalsTrophies.twoSession = true
+            medalsTrophies.fiveSession = true
+            medalsTrophies.eightSession = true
+            medalsTrophies.tenSession = true
             medalsTrophies.fifteenSession = true
             return
         }
         if todaySessions.count == 20 {
+            medalsTrophies.oneSession = true
+            medalsTrophies.twoSession = true
+            medalsTrophies.fiveSession = true
+            medalsTrophies.eightSession = true
+            medalsTrophies.tenSession = true
             medalsTrophies.twentySession = true
             return
         }
         if todaySessions.count == 50 {
+            medalsTrophies.oneSession = true
+            medalsTrophies.twoSession = true
+            medalsTrophies.fiveSession = true
+            medalsTrophies.eightSession = true
+            medalsTrophies.tenSession = true
             medalsTrophies.fiftySession = true
         }
         

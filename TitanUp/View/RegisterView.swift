@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegisterView: View {
     @StateObject var viewModel = RegisterViewModel()
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         BackgroundImage {
             VStack(spacing: 20) {
@@ -31,6 +32,7 @@ struct RegisterView: View {
                 // Login Button.
                 Button(action: {
                     viewModel.register();
+                    dismiss()
                 }) {
                     Text("Login")
                         .font(.headline)

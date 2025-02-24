@@ -11,16 +11,18 @@ struct ContentView: View {
     @StateObject var contentViewModel = ContentViewModel()
     
     var body: some View {
-        Group {
-            if contentViewModel.isSignedIn {
-                HomeTabView(uid: contentViewModel.currentUserId)
-            } else {
-                StartView()
-                
+        NavigationStack {
+            Group {
+                if contentViewModel.isSignedIn {
+                    HomeTabView(uid: contentViewModel.currentUserId)
+                } else {
+                    StartView()
+                    
+                }
             }
-        }
-        .onAppear {
-            print("ContentView appeared. Current User ID: \(contentViewModel.currentUserId)")
+            .onAppear {
+                print("ContentView appeared. Current User ID: \(contentViewModel.currentUserId)")
+            }
         }
     }
 }

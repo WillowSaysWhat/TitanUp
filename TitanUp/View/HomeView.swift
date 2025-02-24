@@ -41,7 +41,14 @@ struct ProfilePanel: View {
         
             ZStack {
                 RoundedRectangle(cornerRadius: 15)
-                    .foregroundStyle(colour)
+                    .foregroundStyle(
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color.titanUpMidBlue, Color.titanUpBlue]), // Customize colors
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+
                 Circle()
                     .frame(width: 130)
                     .offset(x: UIScreen.main.bounds.width * -0.29,
@@ -126,7 +133,13 @@ struct TwoChartPanels: View {
                         
                             SectorMark(angle: .value("reps", session.pushUps), innerRadius: .ratio(0.3), angularInset: 1.2)
                                 .cornerRadius(5)
-                                .foregroundStyle(getRandomColor(value: session.pushUps))
+                                .foregroundStyle(RadialGradient(
+                                    gradient: Gradient(colors: [.blue, getRandomColor(value: session.pushUps)]),
+                                    center: .leading,
+                                    startRadius: 5,
+                                    endRadius: 100
+                                )
+                            )
                                                         
                     }
                 }
@@ -144,7 +157,11 @@ struct TwoChartPanels: View {
                                 y: .value("push ups", session.pushUps),
                                 width: 15
                         )
-                        .foregroundStyle(getRandomColor(value: session.pushUps))
+                        .foregroundStyle(LinearGradient(
+                            gradient: Gradient(colors: [.blue, getRandomColor(value: session.pushUps)]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        ))
                     }
                     .padding()
                     .chartXAxis(.hidden)
@@ -185,6 +202,7 @@ struct LongChartPanel: View {
                 .padding()
                 .chartYScale(domain: 0...100) // height of Y axis
                 .animation(.bouncy, value: viewModel.monthSessions)
+                .frame(width: UIScreen.main.bounds.width)
             }
             
         }
@@ -270,10 +288,17 @@ func getRandomColor(value: Int) -> Color {
         return .titanUpMidBlue
     }
     if value <= 20 {
-        return Color.blue
+        return .titanUpLightBlue
+    }
+    if value <= 30 {
+        return .titanUpMidBlue
+    }
+    if value <= 40 {
+        return .titanUpLightBlue
+        
     }
     else {
-        return .gray
+        return .titanUp
         
     }
 }
