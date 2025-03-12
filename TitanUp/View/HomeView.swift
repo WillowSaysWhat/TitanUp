@@ -35,6 +35,7 @@ struct HomeView: View {
 // ProfilePanel
 struct ProfilePanel: View {
     let colour: Color
+    
     @EnvironmentObject var viewModel: HomeViewModel // Use environment object
     
     var body: some View {
@@ -71,6 +72,7 @@ struct ProfilePanel: View {
                             .frame(width: 50, height: 50)
                             .opacity(viewModel.medalsTrophies.oneSession ? 1 : 0.6)
                             .cornerRadius(15)
+                            
                         
                         Image(viewModel.medalsTrophies.twoSession ? "Trophy2" : "trophyPlaceholder")
                             .resizable()
@@ -108,16 +110,14 @@ struct ProfilePanel: View {
                         y: UIScreen.main.bounds.height * 0.05)
             }
             .frame(height: UIScreen.main.bounds.height * 0.30)
-            
-        
-        
-        
     }
+    
 }
 
 
 // TwoChartPanels
 struct TwoChartPanels: View {
+    
     let colour: Color
     @EnvironmentObject var viewModel: HomeViewModel // Use environment object
     
@@ -126,7 +126,7 @@ struct TwoChartPanels: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 15)
                     .foregroundStyle(colour)
-                if viewModel.todaySessions.isEmpty {
+                if $viewModel.todaySessions.isEmpty {
                     Text("No Sessions")
                 } else {
                     Chart(viewModel.todaySessions) { session in
@@ -161,16 +161,17 @@ struct TwoChartPanels: View {
                             gradient: Gradient(colors: [.blue, getRandomColor(value: session.pushUps)]),
                             startPoint: .top,
                             endPoint: .bottom
-                        ))
+                        )
+                      )
                     }
                     .padding()
                     .chartXAxis(.hidden)
-                    .chartYScale(domain: 0...100) // height of Y axis
+                    .chartYScale(domain: 0...200) // height of Y axis
                     .animation(.bouncy, value: viewModel.weekSessions)
                     
                 }
             }
-            .frame(width: UIScreen.main.bounds.width * 0.4)
+            .frame(width: UIScreen.main.bounds.width * 0.4, height:UIScreen.main.bounds.height * 0.2)
         }
         .frame(height: UIScreen.main.bounds.height * 0.2)
     }
@@ -188,21 +189,22 @@ struct LongChartPanel: View {
                 .foregroundStyle(colour)
                 .frame(width: UIScreen.main.bounds.width)
             
-            if viewModel.monthSessions.isEmpty {
+            if $viewModel.monthSessions.isEmpty {
                 Text("No Sessions")
             } else {
                 // still trying to work this chart out.
                 Chart(viewModel.monthSessions) { session in
                     BarMark(x: .value("Date", session.date, unit: .day),
                             y: .value("push ups", session.pushUps),
-                            width: 15
+                            width: 18
                     )
                     .foregroundStyle(getRandomColor(value: session.pushUps))
+                    
                 }
                 .padding()
-                .chartYScale(domain: 0...100) // height of Y axis
+                .chartYScale(domain: 0...200) // height of Y axis
                 .animation(.bouncy, value: viewModel.monthSessions)
-                .frame(width: UIScreen.main.bounds.width)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.2)
             }
             
         }

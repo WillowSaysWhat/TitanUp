@@ -30,7 +30,7 @@ class RegisterViewModel: ObservableObject {
         }
     }
     
-    private func insertUser(id:String){
+     func insertUser(id:String){
         // creates new users and inputs fields.
         let newUser = User(id: id,
                            name: self.name,
@@ -46,7 +46,7 @@ class RegisterViewModel: ObservableObject {
     }
     
     // user input error handling.
-    private func validate() -> Bool {
+    func validate() -> Bool {
         self.errorMessage = "";
         // checks input - name, email and passowrd hold characters.
         guard !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,

@@ -1,8 +1,15 @@
+//
+//  OSFrontCameraView.swift
+//  TitanUp
+//
+//  Created by Huw Williams on 12/03/2025.
+//
+
 import SwiftUI
 import QuickPoseCore
 import QuickPoseSwiftUI
 
-struct FrontCameraView: View {
+struct OSFrontCameraView: View {
     // This is the sdk key for TitanUP
     var quickPose = QuickPose(sdkKey: "01JCN7DDNVYD0V1FJ8QBHG0P4P")
     @StateObject var viewModel = PoseNetDetectionViewModel()
@@ -19,11 +26,11 @@ struct FrontCameraView: View {
         ZStack {
              //this initialised the fake camera
 //            if let url = Bundle.main.url(forResource: "IMG_4149", withExtension: "mov"){
-//                QuickPoseSimulatedCameraView(useFrontCamera: true, delegate: quickPose, video: url)
-//            }
+//               QuickPoseSimulatedCameraView(useFrontCamera: true, delegate: quickPose, video: url)
+//           }
             
             // this commented out code is for the actual camera.
-           QuickPoseCameraView(useFrontCamera: true, delegate: quickPose)
+          QuickPoseCameraView(useFrontCamera: true, delegate: quickPose)
             
             // This is the overlay view which appear as lines linking a virtual skeleton.
             QuickPoseOverlayView(overlayImage: $overlayImage)
@@ -41,10 +48,13 @@ struct FrontCameraView: View {
             // resets from previous session.
             pushupCounter.reset()
             pushupCount = 0
-            quickPose.start(features: [.fitness(.pushUps)], onFrame: {status, image, features, feedback, landmarks in
+            quickPose.start(features: [
+                .rangeOfMotion(.knee(side: .left, clockwiseDirection: true)),
+                .rangeOfMotion(.knee(side: .right, clockwiseDirection: true)),
+                .fitness(.pushUps)], onFrame: {status, image, features, feedback, landmarks in
                 
                 // This places the lines on the screen for testing.
-			overlayImage = image
+            overlayImage = image
                 
                 // if the features variable is a pushup (pre-defined in QuickPose package.)
                 // count the pushup using the QuickPoseThresholdCounter object.
@@ -66,7 +76,7 @@ struct FrontCameraView: View {
             })
         }.onDisappear(){
             // save to firestore.
-            viewModel.saveSessionToFirestore(pushupCount: pushupCount)
+            // viewModel.saveSessionToFirestore(pushupCount: pushupCount)
             quickPose.stop()
             
             
@@ -78,9 +88,8 @@ struct FrontCameraView: View {
             
       
 
-#Preview {
-    FrontCameraView()
-}
+
 
 //"01J52X1864AWPT4J282F1JH3P8"
 // 01JCN7DDNVYD0V1FJ8QBHG0P4P
+

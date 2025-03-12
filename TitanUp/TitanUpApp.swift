@@ -18,7 +18,7 @@ struct TitanUpApp: App {
     
     var body: some Scene {
         WindowGroup {
-            
+            //OSFrontCameraView() // tesing a more robust counter
                ContentView()
             }
     }

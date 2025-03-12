@@ -26,6 +26,7 @@
 		0BB8BFE72CEB7FD30094CCB9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB8BFE62CEB7FD30094CCB9 /* FirebaseFirestore */; };
 		0BB8BFE92CEB85510094CCB9 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB8BFE82CEB85510094CCB9 /* ContentViewModel.swift */; };
 		0BC859C52D58E4ED000F11D0 /* medalPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BC859C42D58E4ED000F11D0 /* medalPlaceholder.png */; };
+		0BC938AA2D81A35200A23A1C /* OSFrontCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC938A92D81A35200A23A1C /* OSFrontCameraView.swift */; };
 		0BCC9E292CDA653800AB7790 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E282CDA653800AB7790 /* LoginView.swift */; };
 		0BCC9E2B2CDA655100AB7790 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E2A2CDA655000AB7790 /* StartView.swift */; };
 		0BCC9E2D2CDA656B00AB7790 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E2C2CDA656B00AB7790 /* HomeView.swift */; };
@@ -38,6 +39,10 @@
 		0BCC9E3E2CDA66D400AB7790 /* PushupSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E3D2CDA66D400AB7790 /* PushupSession.swift */; };
 		0BCC9E402CDA67F200AB7790 /* omid-armin-Wo7OTDRS2Io-unsplash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0BCC9E3F2CDA67F200AB7790 /* omid-armin-Wo7OTDRS2Io-unsplash.jpg */; };
 		0BCC9E432CDA6D4600AB7790 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9E422CDA6D4600AB7790 /* Background.swift */; };
+		0BD22DBF2D6DBC8500D93F6E /* AllSessionsArraysTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD22DBE2D6DBC8500D93F6E /* AllSessionsArraysTest.swift */; };
+		0BD22DC12D6DBDC900D93F6E /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD22DC02D6DBDC900D93F6E /* LoginTest.swift */; };
+		0BD22DC42D6DD8B300D93F6E /* RegisterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD22DC32D6DD8B300D93F6E /* RegisterTest.swift */; };
+		0BD22DC62D6DE2D100D93F6E /* ContentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD22DC52D6DE2D100D93F6E /* ContentTest.swift */; };
 		0BDB72CC2C6A005D007B41EC /* TitanUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB72CB2C6A005D007B41EC /* TitanUpApp.swift */; };
 		0BDB72CE2C6A005D007B41EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDB72CD2C6A005D007B41EC /* ContentView.swift */; };
 		0BDB72D02C6A005E007B41EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BDB72CF2C6A005E007B41EC /* Assets.xcassets */; };
@@ -75,10 +80,12 @@
 		0B2D7B4B2D68AFF500D5F996 /* MedalsAndTrophies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalsAndTrophies.swift; sourceTree = "<group>"; };
 		0B6F28582CE5F5260012F4E6 /* Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets.swift; sourceTree = "<group>"; };
 		0B6F285A2CE60C180012F4E6 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		0B8CC2A42D6CCB6100D00BF7 /* TitanUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TitanUp.entitlements; sourceTree = "<group>"; };
 		0B90BA5D2C747C050032674C /* IMG_4149.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_4149.mov; sourceTree = "<group>"; };
 		0B94F6422CEB9021004DCBCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0BB8BFE82CEB85510094CCB9 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		0BC859C42D58E4ED000F11D0 /* medalPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medalPlaceholder.png; sourceTree = "<group>"; };
+		0BC938A92D81A35200A23A1C /* OSFrontCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSFrontCameraView.swift; sourceTree = "<group>"; };
 		0BCC9E282CDA653800AB7790 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0BCC9E2A2CDA655000AB7790 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		0BCC9E2C2CDA656B00AB7790 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -91,6 +98,11 @@
 		0BCC9E3D2CDA66D400AB7790 /* PushupSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupSession.swift; sourceTree = "<group>"; };
 		0BCC9E3F2CDA67F200AB7790 /* omid-armin-Wo7OTDRS2Io-unsplash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "omid-armin-Wo7OTDRS2Io-unsplash.jpg"; sourceTree = "<group>"; };
 		0BCC9E422CDA6D4600AB7790 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		0BD22DBE2D6DBC8500D93F6E /* AllSessionsArraysTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSessionsArraysTest.swift; sourceTree = "<group>"; };
+		0BD22DC02D6DBDC900D93F6E /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
+		0BD22DC22D6DD60800D93F6E /* TitanUp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TitanUp.xctestplan; sourceTree = "<group>"; };
+		0BD22DC32D6DD8B300D93F6E /* RegisterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTest.swift; sourceTree = "<group>"; };
+		0BD22DC52D6DE2D100D93F6E /* ContentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTest.swift; sourceTree = "<group>"; };
 		0BDB72C82C6A005D007B41EC /* TitanUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TitanUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BDB72CB2C6A005D007B41EC /* TitanUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanUpApp.swift; sourceTree = "<group>"; };
 		0BDB72CD2C6A005D007B41EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -191,6 +203,7 @@
 				0BCC9E2E2CDA657F00AB7790 /* ProfileView.swift */,
 				0B6F285A2CE60C180012F4E6 /* RegisterView.swift */,
 				0BED006B2CE6112800C12A34 /* FrontCameraView.swift */,
+				0BC938A92D81A35200A23A1C /* OSFrontCameraView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +220,7 @@
 		0BDB72BF2C6A005D007B41EC = {
 			isa = PBXGroup;
 			children = (
+				0BD22DC22D6DD60800D93F6E /* TitanUp.xctestplan */,
 				0BDB72CA2C6A005D007B41EC /* TitanUp */,
 				0BDB72DB2C6A005E007B41EC /* TitanUpTests */,
 				0BDB72E52C6A005E007B41EC /* TitanUpUITests */,
@@ -227,6 +241,7 @@
 		0BDB72CA2C6A005D007B41EC /* TitanUp */ = {
 			isa = PBXGroup;
 			children = (
+				0B8CC2A42D6CCB6100D00BF7 /* TitanUp.entitlements */,
 				0B94F6422CEB9021004DCBCE /* GoogleService-Info.plist */,
 				0BCC9E272CDA64D700AB7790 /* View */,
 				0BCC9E262CDA64CC00AB7790 /* ViewModel */,
@@ -252,6 +267,10 @@
 			isa = PBXGroup;
 			children = (
 				0BDB72DC2C6A005E007B41EC /* TitanUpTests.swift */,
+				0BD22DBE2D6DBC8500D93F6E /* AllSessionsArraysTest.swift */,
+				0BD22DC02D6DBDC900D93F6E /* LoginTest.swift */,
+				0BD22DC32D6DD8B300D93F6E /* RegisterTest.swift */,
+				0BD22DC52D6DE2D100D93F6E /* ContentTest.swift */,
 			);
 			path = TitanUpTests;
 			sourceTree = "<group>";
@@ -430,6 +449,7 @@
 				0B6F285B2CE60C180012F4E6 /* RegisterView.swift in Sources */,
 				0BCC9E372CDA665800AB7790 /* ProfileViewModel.swift in Sources */,
 				0BE3E0602CECA9C40010CCEA /* RegisterViewModel.swift in Sources */,
+				0BC938AA2D81A35200A23A1C /* OSFrontCameraView.swift in Sources */,
 				0BE3E0622CECAC690010CCEA /* Extensions.swift in Sources */,
 				0BB8BFE92CEB85510094CCB9 /* ContentViewModel.swift in Sources */,
 				0BCC9E3A2CDA666F00AB7790 /* User.swift in Sources */,
@@ -446,6 +466,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BD22DC12D6DBDC900D93F6E /* LoginTest.swift in Sources */,
+				0BD22DBF2D6DBC8500D93F6E /* AllSessionsArraysTest.swift in Sources */,
+				0BD22DC42D6DD8B300D93F6E /* RegisterTest.swift in Sources */,
+				0BD22DC62D6DE2D100D93F6E /* ContentTest.swift in Sources */,
 				0BDB72DD2C6A005E007B41EC /* TitanUpTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,25 +624,27 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = TitanUp/TitanUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TitanUp/Preview Content\"";
 				DEVELOPMENT_TEAM = 94WNU99F48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = TitanUp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "TitanUp Needs access to count your pushups";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = WillowSaysWhat.TitanUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -633,25 +659,27 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = TitanUp/TitanUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TitanUp/Preview Content\"";
 				DEVELOPMENT_TEAM = 94WNU99F48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = TitanUp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "TitanUp Needs access to count your pushups";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = WillowSaysWhat.TitanUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

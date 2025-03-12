@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "E4E93CDE-0544-40FC-8B2C-D622C388A498",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TitanUp.xcodeproj",
+      "identifier" : "0BDB72C72C6A005D007B41EC",
+      "name" : "TitanUp"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:TitanUp.xcodeproj",
+        "identifier" : "0BDB72D72C6A005E007B41EC",
+        "name" : "TitanUpTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:TitanUp.xcodeproj",
+        "identifier" : "0BDB72E12C6A005E007B41EC",
+        "name" : "TitanUpUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

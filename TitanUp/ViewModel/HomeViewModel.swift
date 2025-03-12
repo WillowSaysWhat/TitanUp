@@ -22,8 +22,9 @@ class HomeViewModel: ObservableObject {
     private var medalListener: ListenerRegistration? // real time listener so medals update.
     
     init() { // populates homepage with session data and medals.
-        fetchSessionsRealTime()
-        fetchMedalsAndTrophies()
+        self.fetchSessionsRealTime()
+        // self.fetchMedalsAndTrophies()
+        
         
     }
     deinit {
@@ -55,8 +56,7 @@ class HomeViewModel: ObservableObject {
                             let timestamp = data["date"] as? Timestamp
                             let date = timestamp?.dateValue() ?? Date() // Convert Firestore Timestamp to Date
                             let pushUps = data["pushUps"] as? Int ?? 0
-                            
-                            
+            
                             return Session(sessionId: sessionId, date: date, pushUps: pushUps)
                         }
                         
@@ -65,8 +65,8 @@ class HomeViewModel: ObservableObject {
                         self.filterWeekSessions( )
                         self.monthSessions = self.sessions.filter { Calendar.current.isDate($0.date, equalTo: Date(), toGranularity: .month) }
                         
-                        print("months sessions: \(self.monthSessions.count).")
-                        
+                        print("today's sessions: \(self.todaySessions.count).")
+                        self.fetchMedalsAndTrophies()
                     }
                 }
         }
@@ -126,7 +126,7 @@ class HomeViewModel: ObservableObject {
 
         medalListener = db.collection("TitanUpUsers")
             .document(user)
-            .collection("medals") // Assuming there's only ONE document in this collection
+            .collection("medals") // there's only ONE document in this collection
             .document("userMedals") // You should have a single document for medals (update as needed)
             .addSnapshotListener { documentSnapshot, error in
                 if let error = error {
@@ -150,9 +150,9 @@ class HomeViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.medalsTrophies = decodedMedals // Assign to ViewModel
                         // print("Successfully fetched medals: \(self.medalsTrophies)")
-                        
+                        self.checkTrophies()
                         self.checkMedal() // checks for medals to be awarded.
-                        self.checkTrophies() // checks trophies too.
+                         // checks trophies too.
                     }
                 } catch {
                     print("Error decoding medals: \(error.localizedDescription)")
@@ -175,14 +175,16 @@ class HomeViewModel: ObservableObject {
             if !monthSessions.isEmpty {
                 medalsTrophies.firstDay = true
                 print("changed to true")
+        
                 return
             }
         }
         if !medalsTrophies.seventhDay {
             // find if there are seven days of sessions
-            if self.validateMedal(days: 7, thisSessionList: self.weekSessions) {
+            if self.validateMedal(days: 2, thisSessionList: self.weekSessions) {
                 // reward medal
                 medalsTrophies.seventhDay = true
+               
                 return
             }
         }
@@ -191,6 +193,7 @@ class HomeViewModel: ObservableObject {
             if self.validateMedal(days: 30, thisSessionList: self.monthSessions) {
                 // reward medal
                 medalsTrophies.thirtyDay = true
+                
                 return
             }
         }
@@ -198,6 +201,7 @@ class HomeViewModel: ObservableObject {
             if self.validateMedal(days: 90, thisSessionList: self.sessions) {
                 // reward medal
                 medalsTrophies.ninetyDay = true
+                
                 return
             }
             
@@ -206,6 +210,7 @@ class HomeViewModel: ObservableObject {
             if self.validateMedal(days: 150, thisSessionList: self.sessions) {
                 // reward medal
                 medalsTrophies.OneFiftyDay = true
+                
                 return
             }
         }
@@ -213,6 +218,7 @@ class HomeViewModel: ObservableObject {
             if self.validateMedal(days: 200, thisSessionList: self.sessions) {
                 // reward medal
                 medalsTrophies.twoHundredDay = true
+                
                 return
             }
         }
@@ -220,6 +226,7 @@ class HomeViewModel: ObservableObject {
             if self.validateMedal(days: 300, thisSessionList: self.sessions) {
                 // reward medal
                 medalsTrophies.threeHundredDay = true
+                
                 return
             }
         }
@@ -227,6 +234,7 @@ class HomeViewModel: ObservableObject {
             if self.validateMedal(days: 365, thisSessionList: self.sessions) {
                 // reward medal
                 medalsTrophies.threeSixtyFiveDay = true
+                
                 return
             }
         }
@@ -258,7 +266,8 @@ class HomeViewModel: ObservableObject {
     
     private func checkTrophies() {
         
-        if todaySessions.isEmpty {
+        if self.todaySessions.isEmpty {
+            print("the today is empty")
             medalsTrophies.oneSession = false
             medalsTrophies.twoSession = false
             medalsTrophies.fiveSession = false
@@ -267,64 +276,47 @@ class HomeViewModel: ObservableObject {
             medalsTrophies.fifteenSession = false
             medalsTrophies.twentySession = false
             medalsTrophies.fiftySession = false
-            return
+           
         }
-        if todaySessions.count == 1 {
+        if self.todaySessions.count >= 1 {
             medalsTrophies.oneSession = true
-            return
+            
         }
-        if todaySessions.count == 2 {
-            medalsTrophies.oneSession = true
+        if self.todaySessions.count >= 2 {
+            
             medalsTrophies.twoSession = true
-            return
+            
         }
-        if todaySessions.count == 5 {
-            medalsTrophies.oneSession = true
-            medalsTrophies.twoSession = true
+        if self.todaySessions.count >= 5 {
+            
             medalsTrophies.fiveSession = true
-            return
+            
         }
-        if todaySessions.count == 8 {
-            medalsTrophies.oneSession = true
-            medalsTrophies.twoSession = true
-            medalsTrophies.fiveSession = true
+        if self.todaySessions.count >= 8 {
+           
             medalsTrophies.eightSession = true
-            return
+            
         }
-        if todaySessions.count == 10 {
-            medalsTrophies.oneSession = true
-            medalsTrophies.twoSession = true
-            medalsTrophies.fiveSession = true
-            medalsTrophies.eightSession = true
+        if self.todaySessions.count >= 10 {
+            
             medalsTrophies.tenSession = true
-            return
+            
         }
-        if todaySessions.count == 15 {
-            medalsTrophies.oneSession = true
-            medalsTrophies.twoSession = true
-            medalsTrophies.fiveSession = true
-            medalsTrophies.eightSession = true
-            medalsTrophies.tenSession = true
+        if self.todaySessions.count >= 15 {
+            
             medalsTrophies.fifteenSession = true
-            return
+            
         }
-        if todaySessions.count == 20 {
-            medalsTrophies.oneSession = true
-            medalsTrophies.twoSession = true
-            medalsTrophies.fiveSession = true
-            medalsTrophies.eightSession = true
-            medalsTrophies.tenSession = true
+        if self.todaySessions.count >= 20 {
+            
             medalsTrophies.twentySession = true
-            return
+            
         }
-        if todaySessions.count == 50 {
-            medalsTrophies.oneSession = true
-            medalsTrophies.twoSession = true
-            medalsTrophies.fiveSession = true
-            medalsTrophies.eightSession = true
-            medalsTrophies.tenSession = true
+        if todaySessions.count >= 50 {
+            
             medalsTrophies.fiftySession = true
         }
+        self.saveMedalsAndTrophies()
         
         return
     }
